@@ -6,10 +6,8 @@
   NODE_VERSION = "22.12.0"
 
 # Redirect configuration
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Astro handles routing, so we don't need a catch-all redirect to index.html
+# which can break dynamic routes like /[slug]
 
 # Form handling
 [functions]
