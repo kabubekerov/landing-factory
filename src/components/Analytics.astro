@@ -1,0 +1,23 @@
+---
+const { landingSlug } = Astro.props;
+---
+
+<script define:vars={{ landingSlug }}>
+  import { trackPageView } from '../utils/analytics.ts';
+  
+  // Track page view on load
+  if (landingSlug) {
+    trackPageView(landingSlug);
+  }
+  
+  // Expose tracking functions to window for use in other components
+  window.trackCTAClick = function() {
+    const { trackCTAClick } = await import('../utils/analytics.ts');
+    trackCTAClick(landingSlug);
+  };
+  
+  window.trackFormSubmission = function() {
+    const { trackFormSubmission } = await import('../utils/analytics.ts');
+    trackFormSubmission(landingSlug);
+  };
+</script>

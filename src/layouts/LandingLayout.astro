@@ -6,6 +6,7 @@ import Proof from '../components/Proof.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
 import Form from '../components/Form.astro';
+import Analytics from '../components/Analytics.astro';
 import '../styles/global.css';
 
 const { 
@@ -30,6 +31,7 @@ const {
     <title>{headline}</title>
   </head>
   <body>
+    <Analytics landingSlug={slug} />
     <Hero headline={headline} subtitle={subtitle} cta={cta} />
     {problems.length > 0 && <Problem problems={problems} />}
     {benefits.length > 0 && <Solution benefits={benefits} />}
