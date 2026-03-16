@@ -149,11 +149,12 @@ const processSteps = [
     <Analytics landingSlug={slug} />
 
     <main>
-      <section class="hero745 section">
-        <div class="container">
+      <section class="hero745 section section--photo-hero">
+        <div class="hero745__backdrop" style={`--section-bg: url(${images.hero})`}></div>
+        <div class="container hero745__container">
           <div class="hero745__label">ЖК «745 квартал» · Пермь · Тихий центр</div>
           <div class="hero745__grid">
-            <div class="hero745__content">
+            <div class="hero745__content hero745__content--glass">
               <h1>Кто сказал, что быть собой — <em>для пермяка недостаточно?</em></h1>
               <p class="hero745__lead">
                 Мы верим, что город должен слышать своих. Что быть старым пермяком — это честь.
@@ -165,15 +166,7 @@ const processSteps = [
               </div>
             </div>
 
-            <aside class="hero745__card">
-              <div class="hero745__visual-wrap">
-                <img
-                  class="hero745__visual"
-                  src={images.hero}
-                  alt="Интерьер квартиры с панорамным окном и видом на тихую историческую улицу"
-                  loading="eager"
-                />
-              </div>
+            <aside class="hero745__card hero745__card--floating">
               <div class="hero745__card-body">
                 <h2>47 квартир бизнес-класса в тихом центре Перми для тех, кто выбирает не статус, а совпадение с собой</h2>
                 <p class="hero745__meta">Сдача — IV квартал 2025 · Закрытая презентация — по приглашению</p>
@@ -187,8 +180,9 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="section section--tight triggers745-wrap">
-        <div class="container">
+      <section class="section section--tight triggers745-wrap section--photo-band" style={`--section-bg: url(${images.aha3})`}>
+        <div class="section-band745__overlay"></div>
+        <div class="container triggers745__container">
           <div class="triggers745">
             {triggerPoints.map((item) => <p>{item}</p>)}
           </div>
@@ -208,9 +202,10 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="section responses745">
-        <div class="container">
-          <div class="section745-heading center745">
+      <section class="section responses745 section--photo-soft" style={`--section-bg: url(${images.aha2})`}>
+        <div class="responses745__veil"></div>
+        <div class="container responses745__container">
+          <div class="section745-heading center745 section745-heading--light">
             <h2>Как 745 квартал отвечает на то, что вас останавливало</h2>
           </div>
           <div class="responses745__stack">
@@ -234,30 +229,17 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="immersive745 immersive745--community" style={`--immersive-bg: url(${images.aha2})`}>
-        <div class="container immersive745__inner immersive745__inner--right">
-          <div class="immersive745__card">
-            <p class="immersive745__eyebrow">745 квартал · Культура своих</p>
-            <h2>Комьюнити без витрины. Среда, где не нужно играть роль.</h2>
-            <p>
-              Здесь важна не демонстрация статуса, а интонация людей, рядом с которыми спокойно жить,
-              говорить и молчать. Это не массовая среда и не сценарий «посмотрите на меня».
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section745-alt qualifier745">
-        <div class="container">
-          <div class="qualifier745__grid">
-            <div class="qualifier745__content">
-              <div class="section745-heading">
-                <h2>Узнайте себя</h2>
-              </div>
-              <div class="self745">
+      <section class="split-photo745">
+        <div class="split-photo745__image" style={`--split-bg: url(${images.qualifier})`}></div>
+        <div class="split-photo745__content-wrap">
+          <div class="container split-photo745__container">
+            <div class="split-photo745__content">
+              <p class="immersive745__eyebrow">745 квартал · Узнайте себя</p>
+              <h2>Дом имеет смысл только тогда, когда совпадает с вашим внутренним масштабом</h2>
+              <div class="self745 self745--transparent">
                 {selfSelection.map((item) => <p>{item}</p>)}
               </div>
-              <blockquote class="quote745">
+              <blockquote class="quote745 quote745--light">
                 <p>
                   «В Перми есть особая интонация. Умение молчать и слушать. 745 квартал — это первое
                   место за долгое время, которое построено именно с этой интонацией. Без нажима».
@@ -265,60 +247,34 @@ const processSteps = [
                 <footer>Амбассадор проекта · Архитектор, Пермь</footer>
               </blockquote>
             </div>
-            <div class="qualifier745__media card745-media">
-              <img src={images.qualifier} alt="Человек в кресле у окна в тихом интерьере квартиры" loading="lazy" />
-            </div>
           </div>
         </div>
       </section>
 
-      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.aha3})`}>
-        <div class="container immersive745__inner">
+      <section class="immersive745 immersive745--contrast" style={`--immersive-bg: url(${images.compare})`}>
+        <div class="container immersive745__inner immersive745__inner--right">
           <div class="immersive745__card immersive745__card--wide">
-            <p class="immersive745__eyebrow">745 квартал · Жизнь без компромиссов</p>
-            <h2>Старая Пермь — без усталости старого фонда. Современный комфорт — без обезличенности нового жилья.</h2>
-            <p>
-              Это тот редкий случай, когда не приходится выбирать между духом места и качеством повседневной жизни.
-              Между историческим контекстом и приватностью. Между городом и собой.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section comparisons745">
-        <div class="container">
-          <div class="comparisons745__hero">
-            <div class="comparisons745__content">
-              <div class="section745-heading">
-                <h2>Мы не для всех. Именно поэтому — для вас.</h2>
-              </div>
-              <div class="comparisons745__grid">
-                {comparisons.map((item) => (
-                  <article class="comparison745-card">
-                    <p class="comparison745-card__overline">{item.overline}</p>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-            <div class="comparisons745__media card745-media comparisons745__media--bleed">
-              <img src={images.compare} alt="Сравнение вычурной роскоши и сдержанного современного интерьера" loading="lazy" />
+            <p class="immersive745__eyebrow">745 квартал · Мы не для всех</p>
+            <h2>Мы не продаём золотые вензеля, старый фонд или массовый компромисс. Мы собираем редкую среду.</h2>
+            <div class="comparisons745__grid">
+              {comparisons.map((item) => (
+                <article class="comparison745-card comparison745-card--overlay">
+                  <p class="comparison745-card__overline">{item.overline}</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section life745">
-        <div class="container">
-          <div class="life745__intro">
-            <div class="section745-heading">
-              <h2>На каком этапе вашей жизни вы хотите жить?</h2>
-              <p>Мы не продаём квадратные метры. Мы предлагаем выбрать, на каком этапе вашей жизни вы хотите жить.</p>
-            </div>
-            <div class="life745__image card745-media">
-              <img src={images.evolution} alt="Подборка интерьеров квартир под разные жизненные сценарии" loading="lazy" />
-            </div>
+      <section class="section life745 section--photo-soft" style={`--section-bg: url(${images.evolution})`}>
+        <div class="responses745__veil responses745__veil--warm"></div>
+        <div class="container life745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
+            <h2>На каком этапе вашей жизни вы хотите жить?</h2>
+            <p>Мы не продаём квадратные метры. Мы предлагаем выбрать, на каком этапе вашей жизни вы хотите жить.</p>
           </div>
           <div class="life745-table-wrap">
             <table class="life745-table">
@@ -351,24 +307,27 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="section section745-alt">
-        <div class="container">
-          <div class="section745-heading center745">
+      <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
+        <div class="section-band745__overlay section-band745__overlay--dark"></div>
+        <div class="container process745__container">
+          <div class="section745-heading center745 section745-heading--light section745-heading--max">
             <h2>Как проходит путь к персональному предложению</h2>
           </div>
           <div class="process745__grid">
             {processSteps.map((step) => (
-              <article class="process745-card">
+              <article class="process745-card process745-card--light">
                 <div class="process745-card__number">{step.number}</div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section final745">
+      <section id="contact" class="section final745 final745--photo">
         <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
         <div class="container final745__container">
           <div class="final745__layout">
@@ -465,14 +424,13 @@ const processSteps = [
 
 <style>
   :global(body.landing-745) {
-    background:
-      radial-gradient(circle at top left, rgba(141, 110, 99, 0.12), transparent 32%),
-      linear-gradient(180deg, #f7f3ee 0%, #f3eee7 100%);
+    background: #130f0d;
     color: #241b16;
   }
 
   .landing-745 main {
     overflow-x: hidden;
+    background: #f6efe8;
   }
 
   .section {
@@ -480,28 +438,66 @@ const processSteps = [
   }
 
   .hero745,
-  .qualifier745,
-  .comparisons745,
   .life745,
-  .final745 {
+  .final745,
+  .responses745,
+  .process745 {
     position: relative;
-    padding-top: 72px;
-    padding-bottom: 72px;
+  }
+
+  .hero745__container,
+  .responses745__container,
+  .life745__container,
+  .process745__container,
+  .final745__container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section--photo-hero,
+  .section--photo-band,
+  .section--photo-soft,
+  .final745--photo {
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .hero745 {
-    padding-top: 72px;
-    padding-bottom: 48px;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    padding: 48px 0;
+    overflow: hidden;
   }
 
-  .hero745::before {
+  .hero745__backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero745__backdrop::after,
+  .section-band745__overlay,
+  .responses745__veil,
+  .immersive745::before,
+  .split-photo745__image::after,
+  .split-photo745__content-wrap::before,
+  .final745__backdrop::after {
     content: '';
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(circle at 18% 14%, rgba(107, 75, 62, 0.12), transparent 26%),
-      radial-gradient(circle at 78% 10%, rgba(166, 132, 110, 0.12), transparent 22%);
     pointer-events: none;
+  }
+
+  .hero745__backdrop::after {
+    background:
+      linear-gradient(90deg, rgba(16, 12, 10, 0.62) 0%, rgba(16, 12, 10, 0.34) 38%, rgba(16, 12, 10, 0.56) 100%),
+      linear-gradient(180deg, rgba(16, 12, 10, 0.14) 0%, rgba(16, 12, 10, 0.42) 100%);
   }
 
   .hero745__label,
@@ -512,117 +508,96 @@ const processSteps = [
     align-items: center;
     padding: 10px 14px;
     border-radius: 999px;
-    background: rgba(81, 52, 35, 0.08);
-    color: #6b4b3e;
+    background: rgba(255, 247, 240, 0.14);
+    color: #fff0e4;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 247, 240, 0.16);
   }
 
   .hero745__grid,
-  .qualifier745__grid,
-  .comparisons745__hero,
-  .life745__intro,
   .final745__layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
-    gap: 32px;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
+    gap: 28px;
+    align-items: end;
     position: relative;
     z-index: 1;
+    min-height: calc(100vh - 96px);
   }
 
-  .hero745__grid {
-    margin-top: 24px;
+  .hero745__content--glass,
+  .hero745__card--floating,
+  .response745-card,
+  .comparison745-card,
+  .process745-card,
+  .final745__card,
+  .quote745,
+  .immersive745__card,
+  .triggers745 p {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .hero745__content--glass {
+    align-self: start;
+    max-width: 780px;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(19, 14, 12, 0.38);
+    border: 1px solid rgba(255, 247, 240, 0.14);
+    box-shadow: 0 18px 42px rgba(12, 9, 8, 0.24);
   }
 
   .hero745__content h1 {
-    font-size: clamp(46px, 6vw, 86px);
+    font-size: clamp(46px, 6vw, 90px);
     line-height: 0.95;
-    margin-bottom: 24px;
-    color: #201713;
+    margin: 18px 0 24px;
+    color: #fff8f2;
   }
 
   .hero745__content h1 em {
     display: inline-block;
     font-style: italic;
-    color: #6f4b3f;
+    color: #e9c8b6;
   }
 
   .hero745__lead {
     font-size: clamp(20px, 2.2vw, 28px);
     line-height: 1.45;
-    max-width: 760px;
-    color: #4e3b33;
-    margin-bottom: 32px;
+    color: rgba(255, 248, 242, 0.92);
+    margin-bottom: 0;
   }
 
   .hero745__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
+    margin-top: 28px;
   }
 
-  .hero745__card,
+  .hero745__card--floating,
   .response745-card,
   .comparison745-card,
   .process745-card,
   .final745__card,
   .quote745,
   .immersive745__card {
-    background: rgba(255, 250, 245, 0.92);
-    border: 1px solid rgba(111, 75, 63, 0.12);
+    background: rgba(255, 248, 242, 0.84);
+    border: 1px solid rgba(255, 247, 240, 0.22);
     border-radius: 28px;
-    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.08);
+    box-shadow: 0 18px 42px rgba(16, 12, 10, 0.16);
   }
 
-  .hero745__card {
-    padding: 18px;
-    overflow: hidden;
-    align-self: start;
-  }
-
-  .hero745__visual-wrap,
-  .card745-media,
-  .response745-card__media {
-    overflow: hidden;
-    border-radius: 28px;
-    background: #e9e0d6;
-    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.08);
-  }
-
-  .hero745__visual-wrap {
-    margin: -18px -18px 22px;
-    aspect-ratio: 4 / 3;
-    border-radius: 24px 24px 0 0;
-    position: relative;
-  }
-
-  .hero745__visual-wrap::after,
-  .immersive745::before,
-  .final745__backdrop::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .hero745__visual-wrap::after {
-    background: linear-gradient(180deg, rgba(34, 23, 18, 0.02) 0%, rgba(34, 23, 18, 0.16) 100%);
-  }
-
-  .hero745__visual,
-  .card745-media img,
-  .response745-card__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .hero745__card--floating {
+    align-self: end;
   }
 
   .hero745__card-body {
-    padding: 0 12px 12px;
+    padding: 30px;
   }
 
   .hero745__card h2 {
@@ -637,15 +612,36 @@ const processSteps = [
     color: #6b4b3e;
   }
 
-  .triggers745-wrap {
-    padding-top: 18px;
-    padding-bottom: 18px;
+  .section--tight {
+    padding: 32px 0;
+  }
+
+  .section--photo-band,
+  .section--photo-soft,
+  .process745 {
+    overflow: hidden;
+  }
+
+  .section-band745__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.48) 0%, rgba(17, 13, 11, 0.72) 100%);
+    z-index: 1;
+  }
+
+  .section-band745__overlay--dark {
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.62) 0%, rgba(17, 13, 11, 0.78) 100%);
+  }
+
+  .triggers745__container {
+    position: relative;
+    z-index: 2;
   }
 
   .triggers745 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    gap: 18px;
   }
 
   .triggers745 p,
@@ -653,17 +649,16 @@ const processSteps = [
     margin: 0;
     padding: 22px 24px;
     border-radius: 24px;
-    background: rgba(255, 251, 246, 0.82);
-    border: 1px solid rgba(111, 75, 63, 0.12);
-    box-shadow: 0 10px 28px rgba(60, 39, 29, 0.06);
-    color: #49362d;
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.16);
+    color: #fff8f2;
     font-size: 18px;
     line-height: 1.55;
   }
 
   .immersive745 {
     position: relative;
-    min-height: 74vh;
+    min-height: 84vh;
     display: flex;
     align-items: center;
     background-image: var(--immersive-bg);
@@ -674,16 +669,15 @@ const processSteps = [
 
   .immersive745::before {
     background:
-      linear-gradient(90deg, rgba(24, 18, 15, 0.78) 0%, rgba(24, 18, 15, 0.45) 42%, rgba(24, 18, 15, 0.18) 100%),
-      linear-gradient(180deg, rgba(24, 18, 15, 0.14) 0%, rgba(24, 18, 15, 0.46) 100%);
+      linear-gradient(90deg, rgba(24, 18, 15, 0.78) 0%, rgba(24, 18, 15, 0.42) 42%, rgba(24, 18, 15, 0.18) 100%),
+      linear-gradient(180deg, rgba(24, 18, 15, 0.08) 0%, rgba(24, 18, 15, 0.46) 100%);
   }
 
   .immersive745__inner {
     position: relative;
     z-index: 1;
     width: 100%;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding: 72px 0;
   }
 
   .immersive745__inner--right {
@@ -694,12 +688,10 @@ const processSteps = [
   .immersive745__card {
     max-width: 640px;
     padding: 32px;
-    backdrop-filter: blur(6px);
-    background: rgba(255, 248, 242, 0.84);
   }
 
   .immersive745__card--wide {
-    max-width: 760px;
+    max-width: 780px;
   }
 
   .immersive745__card h2 {
@@ -716,8 +708,23 @@ const processSteps = [
     color: #44332a;
   }
 
+  .responses745 {
+    padding: 84px 0;
+  }
+
+  .responses745__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 14, 12, 0.78) 0%, rgba(18, 14, 12, 0.64) 100%);
+    z-index: 1;
+  }
+
+  .responses745__veil--warm {
+    background: linear-gradient(180deg, rgba(20, 15, 12, 0.58) 0%, rgba(20, 15, 12, 0.72) 100%);
+  }
+
   .section745-heading {
-    margin-bottom: 26px;
+    margin-bottom: 28px;
   }
 
   .section745-heading h2 {
@@ -734,13 +741,19 @@ const processSteps = [
     color: #5a453b;
   }
 
-  .center745 {
-    text-align: center;
+  .section745-heading--light h2,
+  .section745-heading--light p {
+    color: #fff8f2;
   }
 
-  .responses745 {
-    padding-top: 72px;
-    padding-bottom: 72px;
+  .section745-heading--max {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .center745 {
+    text-align: center;
   }
 
   .responses745__stack,
@@ -768,8 +781,22 @@ const processSteps = [
     order: 1;
   }
 
+  .response745-card__media,
+  .card745-media {
+    overflow: hidden;
+    background: #e9e0d6;
+  }
+
   .response745-card__media {
-    min-height: 380px;
+    min-height: 420px;
+  }
+
+  .response745-card__media img,
+  .card745-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .response745-card__body {
@@ -823,8 +850,62 @@ const processSteps = [
     text-decoration: underline;
   }
 
-  .section745-alt {
-    background: rgba(255, 249, 243, 0.62);
+  .split-photo745 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    min-height: 88vh;
+    background: #1a1411;
+  }
+
+  .split-photo745__image {
+    position: relative;
+    min-height: 520px;
+    background-image: var(--split-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .split-photo745__image::after {
+    background: linear-gradient(180deg, rgba(17, 13, 11, 0.18) 0%, rgba(17, 13, 11, 0.38) 100%);
+  }
+
+  .split-photo745__content-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(180deg, rgba(22, 17, 14, 0.9) 0%, rgba(22, 17, 14, 0.96) 100%);
+  }
+
+  .split-photo745__content-wrap::before {
+    background-image: url('/assets/745-kvartal/original/aha3_soul.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    mix-blend-mode: screen;
+  }
+
+  .split-photo745__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .split-photo745__content {
+    max-width: 720px;
+    padding: 64px 0 64px 48px;
+    color: #fff8f2;
+  }
+
+  .split-photo745__content h2 {
+    margin: 18px 0 24px;
+    font-size: clamp(36px, 4.4vw, 62px);
+    line-height: 1.02;
+    color: #fff8f2;
+  }
+
+  .self745--transparent p {
+    background: rgba(255, 248, 242, 0.08);
   }
 
   .quote745 {
@@ -843,32 +924,48 @@ const processSteps = [
     font-weight: 700;
   }
 
+  .quote745--light {
+    background: rgba(255, 248, 242, 0.1);
+    border: 1px solid rgba(255, 248, 242, 0.12);
+  }
+
+  .quote745--light p,
+  .quote745--light footer {
+    color: #fff8f2;
+  }
+
   .comparison745-card {
     padding: 24px;
   }
 
+  .comparison745-card--overlay {
+    background: rgba(255, 248, 242, 0.9);
+  }
+
   .comparison745-card__overline {
     margin-bottom: 14px;
+    background: rgba(111, 75, 63, 0.08);
+    color: #6b4b3e;
+    border: none;
+    backdrop-filter: none;
   }
 
-  .comparisons745__media--bleed {
-    min-height: 100%;
-  }
-
-  .life745__intro {
-    margin-bottom: 28px;
+  .life745 {
+    padding: 88px 0;
   }
 
   .life745-table-wrap {
     overflow-x: auto;
     border-radius: 28px;
-    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.08);
+    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.18);
+    position: relative;
+    z-index: 2;
   }
 
   .life745-table {
     width: 100%;
     border-collapse: collapse;
-    background: rgba(255, 250, 245, 0.92);
+    background: rgba(255, 250, 245, 0.9);
     min-width: 860px;
   }
 
@@ -885,7 +982,7 @@ const processSteps = [
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: #6b4b3e;
-    background: rgba(240, 226, 214, 0.72);
+    background: rgba(240, 226, 214, 0.8);
   }
 
   .life745-table td strong {
@@ -901,12 +998,20 @@ const processSteps = [
 
   .action745-wrap {
     margin-top: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .process745 {
+    padding: 84px 0;
   }
 
   .process745__grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
+    position: relative;
+    z-index: 2;
   }
 
   .process745-card {
@@ -917,9 +1022,21 @@ const processSteps = [
     align-items: start;
   }
 
+  .process745-card--light {
+    background: rgba(255, 248, 242, 0.14);
+    border: 1px solid rgba(255, 248, 242, 0.14);
+    color: #fff8f2;
+  }
+
+  .process745-card--light h3,
+  .process745-card--light p {
+    color: #fff8f2;
+  }
+
   .final745 {
     color: #fff8f2;
     overflow: hidden;
+    padding: 88px 0;
   }
 
   .final745__backdrop {
@@ -937,13 +1054,9 @@ const processSteps = [
       linear-gradient(180deg, rgba(18, 14, 12, 0.24) 0%, rgba(18, 14, 12, 0.62) 100%);
   }
 
-  .final745__container {
-    position: relative;
-    z-index: 1;
-  }
-
   .final745__media-copy {
     align-self: center;
+    max-width: 720px;
   }
 
   .final745__media-copy h2 {
@@ -1030,9 +1143,10 @@ const processSteps = [
   }
 
   .button745--ghost {
-    background: rgba(255, 250, 245, 0.92);
-    color: #6b4b3e;
-    border: 1px solid rgba(111, 75, 63, 0.18);
+    background: rgba(255, 248, 242, 0.14);
+    color: #fff8f2;
+    border: 1px solid rgba(255, 248, 242, 0.2);
+    backdrop-filter: blur(8px);
   }
 
   .final745__submit {
@@ -1054,13 +1168,11 @@ const processSteps = [
 
   @media (max-width: 1100px) {
     .hero745__grid,
-    .qualifier745__grid,
-    .comparisons745__hero,
-    .life745__intro,
     .final745__layout,
     .response745-card,
     .response745-card:nth-child(even),
-    .process745__grid {
+    .process745__grid,
+    .split-photo745 {
       grid-template-columns: 1fr;
     }
 
@@ -1074,33 +1186,34 @@ const processSteps = [
     }
 
     .immersive745 {
-      min-height: 58vh;
+      min-height: 62vh;
     }
 
     .immersive745__inner--right {
       justify-content: flex-start;
     }
+
+    .split-photo745__content {
+      padding: 40px 0;
+    }
   }
 
   @media (max-width: 720px) {
     .hero745,
-    .qualifier745,
-    .comparisons745,
+    .responses745,
     .life745,
-    .final745,
-    .responses745 {
+    .process745,
+    .final745 {
       padding-top: 40px;
       padding-bottom: 40px;
     }
 
-    .hero745__content h1,
-    .section745-heading h2,
-    .immersive745__card h2,
-    .final745__media-copy h2 {
-      line-height: 1.04;
+    .hero745__grid {
+      min-height: auto;
     }
 
-    .hero745__card,
+    .hero745__content--glass,
+    .hero745__card-body,
     .response745-card__body,
     .comparison745-card,
     .process745-card,
@@ -1110,10 +1223,8 @@ const processSteps = [
       padding: 22px;
     }
 
-    .hero745__visual-wrap,
     .response745-card__media {
       min-height: 260px;
-      aspect-ratio: 4 / 3;
     }
 
     .final745__form-grid {
@@ -1124,8 +1235,9 @@ const processSteps = [
       min-width: 720px;
     }
 
-    .immersive745 {
-      min-height: 46vh;
+    .immersive745,
+    .split-photo745 {
+      min-height: auto;
     }
   }
 </style>
