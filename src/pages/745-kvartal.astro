@@ -1,10 +1,11 @@
 ---
 import Analytics from '../components/Analytics.astro';
-import Form from '../components/Form.astro';
 import '../styles/global.css';
 
 const slug = '745-kvartal';
 const formName = `landing-${slug}`;
+const heroVisual = '/assets/745-kvartal/hero-visual.jpg';
+const formVisual = '/assets/745-kvartal/form-visual.jpg';
 
 const triggerPoints = [
   'Вы устали от архитектуры, которая кричит, навязывает статус и лишает воздуха.',
@@ -147,34 +148,44 @@ const processSteps = [
               <a class="button745 button745--primary" href="#contact">Посмотреть планировки на закрытой встрече</a>
             </div>
             <aside class="hero745__card">
-              <h2>47 квартир бизнес-класса в тихом центре Перми для тех, кто живёт по себе</h2>
-              <p class="hero745__meta">Сдача — IV квартал 2025 · Закрытая презентация — по приглашению</p>
-              <p>
-                Малый дом. Конкретные люди. Правильная интонация. Мы не строим жилой комплекс —
-                мы создаём среду, в которой хочется оставаться.
-              </p>
-              <div class="journey745">
-                <article class="journey745__item">
-                  <span>01</span>
-                  <div>
-                    <h3>Вы выбираете</h3>
-                    <p>Мы спроектировали пространства без навязчивости — с правильной интонацией, воздухом и видами, которые не давят.</p>
-                  </div>
-                </article>
-                <article class="journey745__item">
-                  <span>02</span>
-                  <div>
-                    <h3>Вы переезжаете</h3>
-                    <p>Вы выбираете планировку, где культура начинается с кухни, и переезжаете в дом, который говорит с вами на одном языке.</p>
-                  </div>
-                </article>
-                <article class="journey745__item">
-                  <span>03</span>
-                  <div>
-                    <h3>Вы остаётесь</h3>
-                    <p>Вы обретаете комьюнити без шоу и социального давления — просто нормальных, достойных людей, уважающих тишину.</p>
-                  </div>
-                </article>
+              <div class="hero745__visual-wrap">
+                <img
+                  class="hero745__visual"
+                  src={heroVisual}
+                  alt="Атмосферный вид дома бизнес-класса в тихом центре Перми"
+                  loading="eager"
+                />
+              </div>
+              <div class="hero745__card-body">
+                <h2>47 квартир бизнес-класса в тихом центре Перми для тех, кто живёт по себе</h2>
+                <p class="hero745__meta">Сдача — IV квартал 2025 · Закрытая презентация — по приглашению</p>
+                <p>
+                  Малый дом. Конкретные люди. Правильная интонация. Мы не строим жилой комплекс —
+                  мы создаём среду, в которой хочется оставаться.
+                </p>
+                <div class="journey745">
+                  <article class="journey745__item">
+                    <span>01</span>
+                    <div>
+                      <h3>Вы выбираете</h3>
+                      <p>Мы спроектировали пространства без навязчивости — с правильной интонацией, воздухом и видами, которые не давят.</p>
+                    </div>
+                  </article>
+                  <article class="journey745__item">
+                    <span>02</span>
+                    <div>
+                      <h3>Вы переезжаете</h3>
+                      <p>Вы выбираете планировку, где культура начинается с кухни, и переезжаете в дом, который говорит с вами на одном языке.</p>
+                    </div>
+                  </article>
+                  <article class="journey745__item">
+                    <span>03</span>
+                    <div>
+                      <h3>Вы остаётесь</h3>
+                      <p>Вы обретаете комьюнити без шоу и социального давления — просто нормальных, достойных людей, уважающих тишину.</p>
+                    </div>
+                  </article>
+                </div>
               </div>
             </aside>
           </div>
@@ -257,7 +268,7 @@ const processSteps = [
                 <tr>
                   <th>Этап</th>
                   <th>Кто вы сейчас</th>
-                  <th>Что вы «нанимаете»</th>
+                  <th>Что вы нанимаете</th>
                   <th>Формат в 745 квартале</th>
                 </tr>
               </thead>
@@ -299,17 +310,97 @@ const processSteps = [
         </div>
       </section>
 
-      <section class="section final745">
-        <div class="container final745__card">
-          <p class="final745__eyebrow">745 квартал · Пермь</p>
-          <h2>Напишите нам — мы пришлём материалы и предложим время встречи.</h2>
-          <p>Никакого давления — только конструктивный диалог, планировки и возможность увидеть проект вживую.</p>
-          <a class="button745 button745--primary" href="#contact">Написать нам</a>
+      <section id="contact" class="section final745">
+        <div class="container">
+          <div class="final745__layout">
+            <div class="final745__media">
+              <img
+                src={formVisual}
+                alt="Интерьер квартиры с панорамным видом для приватной встречи по проекту 745 квартал"
+                loading="lazy"
+              />
+            </div>
+            <div class="final745__card">
+              <p class="final745__eyebrow">745 квартал · Закрытая встреча по приглашению</p>
+              <h2>Получите планировки, цены и предложенное время личной встречи</h2>
+              <p class="final745__lead">
+                Оставьте контакты — мы свяжемся с вами в течение одного рабочего дня, пришлём
+                материалы по проекту и предложим удобное время для спокойного разговора без давления.
+              </p>
+              <form
+                name={formName}
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thank-you"
+                class="final745__form"
+              >
+                <input type="hidden" name="form-name" value={formName} />
+                <input type="hidden" name="landing_slug" value={slug} />
+                <input type="hidden" name="utm_source" value="" />
+                <input type="hidden" name="utm_medium" value="" />
+                <input type="hidden" name="utm_campaign" value="" />
+                <input type="hidden" name="utm_content" value="" />
+                <input type="hidden" name="utm_term" value="" />
+
+                <p class="sr-only">
+                  <label>
+                    Не заполняйте это поле, если вы человек:
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div class="final745__form-grid">
+                  <div>
+                    <label for="name" class="field-label745">Как к вам обращаться</label>
+                    <input type="text" id="name" name="name" required class="field-input745" />
+                  </div>
+
+                  <div>
+                    <label for="phone" class="field-label745">Телефон или мессенджер</label>
+                    <input type="tel" id="phone" name="phone" required class="field-input745" />
+                  </div>
+
+                  <div>
+                    <label for="email" class="field-label745">Email</label>
+                    <input type="email" id="email" name="email" class="field-input745" />
+                  </div>
+
+                  <div class="final745__form-full">
+                    <label for="message" class="field-label745">Что вам важно узнать в первую очередь</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      class="field-input745 field-textarea745"
+                      placeholder="Например: планировки 2-комнатных, видовые квартиры, диапазон цен, формат встречи"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="button745 button745--primary final745__submit">
+                  Получить материалы и договориться о встрече
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
-
-      <Form formName={formName} landingSlug={slug} />
     </main>
+
+    <script define:vars={{ slug }}>
+      import { populateUTMFields, trackFormSubmission } from '../utils/analytics.ts';
+
+      const form = document.querySelector('#contact form');
+
+      if (form instanceof HTMLFormElement) {
+        populateUTMFields(form);
+        form.addEventListener('submit', () => {
+          populateUTMFields(form);
+          trackFormSubmission(slug);
+        });
+      }
+    </script>
   </body>
 </html>
 
@@ -328,6 +419,17 @@ const processSteps = [
   .hero745 {
     padding-top: 72px;
     padding-bottom: 48px;
+    position: relative;
+  }
+
+  .hero745::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 18% 14%, rgba(107, 75, 62, 0.12), transparent 26%),
+      radial-gradient(circle at 78% 10%, rgba(166, 132, 110, 0.12), transparent 22%);
+    pointer-events: none;
   }
 
   .hero745__label,
@@ -351,6 +453,8 @@ const processSteps = [
     gap: 32px;
     align-items: start;
     margin-top: 24px;
+    position: relative;
+    z-index: 1;
   }
 
   .hero745__content h1 {
@@ -387,7 +491,34 @@ const processSteps = [
   }
 
   .hero745__card {
-    padding: 30px;
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .hero745__visual-wrap {
+    margin: -18px -18px 22px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+    position: relative;
+  }
+
+  .hero745__visual-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(34, 23, 18, 0.02) 0%, rgba(34, 23, 18, 0.18) 100%);
+  }
+
+  .hero745__visual {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero745__card-body {
+    padding: 0 12px 12px;
   }
 
   .hero745__card h2 {
@@ -581,12 +712,97 @@ const processSteps = [
     margin-top: 28px;
   }
 
+  .final745__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .final745__media {
+    min-height: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 18px 42px rgba(60, 39, 29, 0.12);
+  }
+
+  .final745__media img {
+    width: 100%;
+    height: 100%;
+    min-height: 640px;
+    display: block;
+    object-fit: cover;
+  }
+
   .final745__card {
-    text-align: center;
+    text-align: left;
+    padding: 34px;
   }
 
   .final745__card h2 {
     margin-top: 18px;
+    margin-bottom: 16px;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.02;
+  }
+
+  .final745__lead {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4e3b33;
+    margin-bottom: 22px;
+  }
+
+  .final745__form {
+    display: grid;
+    gap: 18px;
+  }
+
+  .final745__form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .final745__form-full {
+    grid-column: 1 / -1;
+  }
+
+  .field-label745 {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #5d4035;
+  }
+
+  .field-input745 {
+    width: 100%;
+    min-height: 56px;
+    padding: 0 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(111, 75, 63, 0.18);
+    background: rgba(255, 255, 255, 0.92);
+    color: #241b16;
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .field-input745:focus {
+    outline: none;
+    border-color: rgba(107, 75, 62, 0.72);
+    box-shadow: 0 0 0 4px rgba(107, 75, 62, 0.12);
+  }
+
+  .field-textarea745 {
+    min-height: 140px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    resize: vertical;
+  }
+
+  .final745__submit {
+    width: 100%;
   }
 
   .button745 {
@@ -630,7 +846,9 @@ const processSteps = [
   }
 
   @media (max-width: 960px) {
-    .hero745__grid {
+    .hero745__grid,
+    .final745__layout,
+    .final745__form-grid {
       grid-template-columns: 1fr;
     }
 
@@ -645,6 +863,10 @@ const processSteps = [
     .triggers745 p,
     .self745 p {
       font-size: 22px;
+    }
+
+    .final745__media img {
+      min-height: 360px;
     }
   }
 </style>
