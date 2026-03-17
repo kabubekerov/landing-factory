@@ -8,5 +8,7 @@
 # Add new landing aliases above the catch-all rule.
 /offer-745 /745-kvartal/ 200
 
+/offer1 /endemik-established/ 200
+
 # Catch-all redirect for SPA/runtime routing
 /* /index.html 200
