@@ -18,3 +18,4 @@
 - [ ] Make the quote `«Не “ещё одна квартира для семьи”, а более зрелая база для следующего этапа жизни».` light.
 - [ ] Keep `Стратегическая встреча по переупаковке` and the paragraph beginning `Проведём встречу и покажем...` dark.
 - [ ] Remove the form field `Что сейчас не работает в позиционировании` from the form.
+- [ ] Re-audit every user-listed color target in `offer801.astro` because not all specified blocks were corrected yet.
