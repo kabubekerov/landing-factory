@@ -38,8 +38,17 @@ Task contract не обязан быть большим документом. В
 
 Task contract не должен использоваться как формальность задним числом. Его задача — ограничить blast radius до начала правок. Если в процессе стало понятно, что нужно менять больше файлов или другой слой архитектуры, contract должен быть обновлён явно, а не расширен молча.
 
+## Связь с другими модулями
+
+Если задача переходит из подготовки в выпуск, contract должен быть проверен через `docs/playbooks/release-gates.md`. Если в ходе выполнения возник сбой, расхождение staging или конфликт шаблонов, дальнейшие действия должны идти по `docs/playbooks/recovery-protocol.md`, а не через импровизацию.
+
+Для ускорения повседневной работы используйте готовый шаблон `docs/templates/task-contract-template.md` и копируйте его в project-doc, issue или release packet.
+
 ## Связанные документы
 
 - `docs/playbooks/agent-operating-model.md`
+- `docs/playbooks/release-gates.md`
+- `docs/playbooks/recovery-protocol.md`
+- `docs/templates/task-contract-template.md`
 - `docs/standards/git-workflow.md`
 - `docs/standards/content-governance.md`

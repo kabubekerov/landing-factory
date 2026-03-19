@@ -34,7 +34,7 @@
 
 ## Минимальный task contract
 
-Перед началом implementation или release-работы должен быть собран минимальный task contract. Детальные правила вынесены в `docs/standards/task-contract.md`, а здесь зафиксирован только общий принцип.
+Перед началом implementation или release-работы должен быть собран минимальный task contract. Детальные правила вынесены в `docs/standards/task-contract.md`, а здесь зафиксирован только общий принцип. Для повседневной работы можно сразу использовать `docs/templates/task-contract-template.md`, чтобы не собирать contract с нуля.
 
 | Поле | Что должно быть определено |
 |---|---|
@@ -48,7 +48,7 @@
 
 ## Release gates
 
-Ни один пакет изменений не должен считаться готовым только потому, что код написан или документ создан. До выпуска нужно пройти следующие ворота качества. Детальный выпускной порядок вынесен в `docs/playbooks/release-gates.md`.
+Ни один пакет изменений не должен считаться готовым только потому, что код написан или документ создан. До выпуска нужно пройти следующие ворота качества. Детальный выпускной порядок вынесен в `docs/playbooks/release-gates.md`. Если нужен готовый выпускной каркас для project-doc, используйте `docs/templates/project-release-packet-template.md`.
 
 | Gate | Проверка |
 |---|---|
@@ -64,7 +64,7 @@
 
 ## Recovery protocol
 
-Если во время реализации обнаружен сбой, нужно сначала ограничить риск, а уже затем исправлять всё остальное. Детальная последовательность восстановления вынесена в `docs/playbooks/recovery-protocol.md`.
+Если во время реализации обнаружен сбой, нужно сначала ограничить риск, а уже затем исправлять всё остальное. Детальная последовательность восстановления вынесена в `docs/playbooks/recovery-protocol.md`. Для фиксации инцидента и границ аварийного пакета используйте `docs/templates/incident-report-template.md`.
 
 | Ситуация | Действие |
 |---|---|
@@ -87,8 +87,11 @@
 - `docs/standards/content-governance.md`
 - `docs/standards/git-workflow.md`
 - `docs/standards/task-contract.md`
+- `docs/templates/task-contract-template.md`
 - `docs/playbooks/release-gates.md`
+- `docs/templates/project-release-packet-template.md`
 - `docs/playbooks/recovery-protocol.md`
+- `docs/templates/incident-report-template.md`
 - `docs/playbooks/deploy-staging.md`
 - `docs/playbooks/rollback.md`
 - `docs/projects/<slug>/`

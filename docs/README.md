@@ -14,6 +14,7 @@
 |---|---|
 | `standards/` | Правила именования, хранения контента, ассетов, task contract и работы с Git |
 | `playbooks/` | Повторяемые операционные сценарии: обновление вординга, деплой, rollback, operating model, release gates и recovery |
+| `templates/` | Готовые заготовки для task contract, release packet и incident report |
 | `adr/` | Architecture Decision Records — фиксируют системные решения проекта |
 | `projects/<slug>/` | Полный пакет знаний по конкретному лендингу |
 
@@ -33,6 +34,8 @@
 
 ## Операционный контур
 
-Для сквозных задач, где исполнитель проходит путь от аудита до релиза, используйте `playbooks/agent-operating-model.md`. Этот документ связывает standards, playbooks и project-docs в единый рабочий контур и помогает не путать временные внешние инструкции с источником правды внутри репозитория.
+Для сквозных задач, где исполнитель проходит путь от аудита до релиза, используйте `playbooks/agent-operating-model.md`. Этот документ связывает standards, playbooks, templates и project-docs в единый рабочий контур и помогает не путать временные внешние инструкции с источником правды внутри репозитория.
 
 Если нужна более прикладная детализация, используйте модульные документы второго уровня: `standards/task-contract.md`, `playbooks/release-gates.md` и `playbooks/recovery-protocol.md`.
+
+Для немедленного применения этих правил в ежедневной работе используйте шаблоны из `templates/`: `task-contract-template.md`, `project-release-packet-template.md` и `incident-report-template.md`.
