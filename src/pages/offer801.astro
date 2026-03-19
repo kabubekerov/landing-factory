@@ -93,32 +93,32 @@ const comparisons = [
 
 const lifeStages = [
   {
-    stage: 'Не “нужна квартира побольше”',
-    price: 'JTBD stage 01',
-    who: 'Семья чувствует, что старая квартира больше не выдерживает новый объём жизни: вещей, маршрутов, детских задач и усталости взрослых.',
-    hire: 'Нужен дом, в котором семье будет легче жить каждый день.',
-    format: 'Переход от продажи объекта к артикуляции жизненного перехода.',
+    stage: 'Стадия 01 · текущая подача звучит слишком общей',
+    price: 'CEO view',
+    who: 'ЖК выглядит как ещё один “семейный проект”: аккуратно, но без точного ответа, почему именно эта аудитория должна выбрать его среди похожих предложений.',
+    hire: 'Увидеть, где продукт сильнее своей текущей упаковки и какие смыслы сейчас теряются в слишком общих формулировках.',
+    format: 'Диагностика разрыва между реальной ценностью проекта и тем, как он звучит на рынке.',
   },
   {
-    stage: 'Не “важен зелёный район”',
-    price: 'JTBD stage 02',
-    who: 'Родители ищут не просто красивое окружение, а среду, которая снижает шум, тревогу и повседневное трение.',
-    hire: 'Более спокойный и устойчивый режим повседневности.',
-    format: 'Среда как способ сделать семейную жизнь мягче, а не просто эстетичнее.',
+    stage: 'Стадия 02 · перейти от метража к жизненному переходу семьи',
+    price: 'CEO view',
+    who: 'Сильная сторона проекта не в словах про благоустройство сами по себе, а в возможности показать более спокойный, зелёный и собранный режим семейной жизни.',
+    hire: 'Переформулировать оффер так, чтобы он продавал не характеристики, а новый сценарий повседневности для семьи второго цикла.',
+    format: 'Сдвиг от описания объекта к описанию того job, который клиент реально нанимает проект решить.',
   },
   {
-    stage: 'Не “нужен хороший двор”',
-    price: 'JTBD stage 03',
-    who: 'Семье важен внешний контур жизни, который помогает, а не усложняет быт ребёнка и взрослых.',
-    hire: 'Двор и среда, которые поддерживают семью каждый день.',
-    format: 'Проект как поддерживающая инфраструктура повседневной жизни.',
+    stage: 'Стадия 03 · собрать разрозненные плюсы в одно позиционирование',
+    price: 'CEO view',
+    who: 'Двор, природа, связность с городом и семейный сценарий уже есть в продукте, но пока не собраны в одну внятную причину выбрать именно этот ЖК.',
+    hire: 'Соединить продуктовые факты в единую narrative-рамку, которая считывается и в оффере, и на странице, и в разговоре отдела продаж.',
+    format: 'Переход от набора сильных сторон к цельной architecture of value.',
   },
   {
-    stage: 'Не “ищем проект рядом с городом”',
-    price: 'JTBD stage 04',
-    who: 'Покупатель пытается удержать баланс между связностью с городом и более человеческим жизненным режимом.',
-    hire: 'Тишину и зелень без логистического разрыва.',
-    format: 'Баланс связности и более мягкой семейной жизни.',
+    stage: 'Стадия 04 · перевести новую логику в оффер, страницу и встречу',
+    price: 'CEO view',
+    who: 'После диагностики важно не просто признать проблему, а зафиксировать следующий шаг: какую гипотезу переупаковки тестировать в лендинге, креативах и коммуникации.',
+    hire: 'Получить конкретное направление для управленческого решения: доработать сегмент, изменить подачу или полностью пересобрать упаковку проекта.',
+    format: 'B2B-часть лендинга: от понимания эволюции запроса к следующему шагу по переупаковке.',
   },
 ];
 
@@ -466,13 +466,13 @@ const processSteps = [
   :global(body.landing-745) {
     background: #130f0d;
     color: #241b16;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   }
 
   .landing-745 main {
     overflow-x: hidden;
     background: #f6efe8;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   }
 
   .landing-745 h1,
@@ -492,7 +492,7 @@ const processSteps = [
   .landing-745 td,
   .landing-745 blockquote,
   .landing-745 li {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   }
 
   .section {
@@ -761,10 +761,12 @@ const processSteps = [
 
   .triggers745 p {
     margin: 0;
-    font-size: clamp(1.18rem, 2vw, 1.52rem);
-    line-height: 1.62;
-    font-weight: 500;
+    font-size: clamp(1.22rem, 2vw, 1.58rem);
+    line-height: 1.7;
+    font-weight: 600;
     max-width: 32ch;
+    color: rgba(255, 248, 242, 0.98);
+    text-shadow: 0 3px 22px rgba(6, 4, 3, 0.62);
   }
 
   .immersive745 {
@@ -877,7 +879,10 @@ const processSteps = [
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    min-height: 320px;
+    object-fit: contain;
+    object-position: top center;
+    background: #fffaf6;
   }
 
   .response745-card__media {
@@ -902,12 +907,14 @@ const processSteps = [
 
   .response745-card__problem,
   .story745-card__problem {
-    color: rgba(52, 36, 28, 0.84);
+    color: rgba(43, 30, 24, 0.94);
     font-style: italic;
+    font-weight: 500;
   }
 
   .response745-card__detail {
-    color: rgba(48, 34, 27, 0.86);
+    color: rgba(34, 24, 19, 0.92);
+    font-weight: 500;
   }
 
   .inline-link745 {
@@ -1066,8 +1073,8 @@ const processSteps = [
     gap: 14px;
     padding: 28px;
     border-radius: 26px;
-    background: rgba(17, 12, 10, 0.58);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(17, 12, 10, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(12px);
   }
 
@@ -1101,9 +1108,9 @@ const processSteps = [
   }
 
   .process745-card--light {
-    background: rgba(18, 13, 11, 0.48);
+    background: rgba(18, 13, 11, 0.62);
     color: #fff8f2;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(12px);
   }
 
@@ -1137,9 +1144,10 @@ const processSteps = [
   .final745__positioning-shot {
     overflow: hidden;
     border-radius: 26px;
-    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.24);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    min-height: 320px;
+    box-shadow: 0 24px 64px rgba(10, 7, 6, 0.28);
+    background: rgba(255, 250, 246, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   .final745__card {
