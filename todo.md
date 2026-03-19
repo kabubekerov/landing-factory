@@ -19,3 +19,5 @@
 - [ ] Keep `Стратегическая встреча по переупаковке` and the paragraph beginning `Проведём встречу и покажем...` dark.
 - [ ] Remove the form field `Что сейчас не работает в позиционировании` from the form.
 - [ ] Re-audit every user-listed color target in `offer801.astro` because not all specified blocks were corrected yet.
+- [ ] Fix the form text contrast issue where text is still white on a white background.
+- [ ] Replace the left-of-form paragraph with: `Если текущее позиционирование не приводит к продажам, оставьте контакты в форме, проведем встречу и расскажем о своем подходе`.
