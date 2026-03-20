@@ -64,10 +64,10 @@
 # Жилищная инициатива → zhilinit-rodnye-berega-2
 /offer  utm_content=жил-c01  /zhilinit-rodnye-berega-2/  302
 
-# Ак Барс Дом → 745-kvartal (временно, лендинг не создан)
-/offer  utm_content=ак-c01  /745-kvartal/  302
-/offer  utm_content=ак-o01  /745-kvartal/  302
-/offer  utm_content=ак-f01  /745-kvartal/  302
+# Ак Барс Дом → offer801
+/offer  utm_content=ак-c01  /offer801/  302
+/offer  utm_content=ак-o01  /offer801/  302
+/offer  utm_content=ак-f01  /offer801/  302
 
 # Группа Мета → meta-yasniy-bereg
 /offer  utm_content=гру-c01  /meta-yasniy-bereg/  302
