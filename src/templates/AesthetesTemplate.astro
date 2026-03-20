@@ -98,13 +98,13 @@ const s = sections;
             {responseCards.map((card: any) => (
               <article class="response745-card">
                 <div class="response745-card__media">
-                  <img src={card.image} alt={card.alt} loading="lazy" />
+                  <img src={card.image || images[`aha${responseCards.indexOf(card) + 1}`]} alt={card.alt} loading="lazy" />
                 </div>
                 <div class="response745-card__body">
                   <div class="response745-card__number">{card.number}</div>
-                  <h3 set:html={card.title}></h3>
-                  <p class="response745-card__problem" set:html={card.problem}></p>
-                  <p set:html={card.answer}></p>
+                  <h3 set:html={card.title || card.h3}></h3>
+                  <p class="response745-card__problem" set:html={card.problem || card.eyebrow}></p>
+                  <p set:html={card.answer || card.body}></p>
                   <p class="response745-card__detail" set:html={card.detail}></p>
                   {card.cta && (
                     <a class="inline-link745" href="#contact" set:html={card.cta}></a>
