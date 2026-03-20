@@ -1,22 +1,77 @@
 ---
-import { getCollection } from 'astro:content';
-import LandingLayout from '../layouts/LandingLayout.astro';
+import Offer801Template from '../templates/Offer801Template.astro';
+import AesthetesTemplate from '../templates/AesthetesTemplate.astro';
+import StayButGrowTemplate from '../templates/StayButGrowTemplate.astro';
+import { readFileSync, readdirSync } from 'fs';
+import { resolve } from 'path';
 
 export async function getStaticPaths() {
-  const landings = await getCollection('landings');
-  return landings.map((landing) => ({
-    params: { slug: landing.id },
-    props: { landing },
-  }));
+  const dataDir = resolve('./src/data/landings');
+  const files = readdirSync(dataDir).filter((f) => f.endsWith('.json'));
+
+  return files.map((file) => {
+    const slug = file.replace('.json', '');
+    const raw = readFileSync(resolve(dataDir, file), 'utf-8');
+    const data = JSON.parse(raw);
+    return {
+      params: { slug },
+      props: { data, slug },
+    };
+  });
 }
 
-const { landing } = Astro.props;
+const { data, slug } = Astro.props;
+const formName = `landing-${slug}`;
+
+const templateType = data.template || 'offer801';
 ---
 
-<LandingLayout {...landing.data} slug={landing.id}>
-  {landing.body && (
-    <section class="prose prose-lg mx-auto px-6 py-16">
-      <Fragment set:html={landing.body} />
-    </section>
-  )}
-</LandingLayout>
+{templateType === 'offer801' && (
+  <Offer801Template
+    slug={slug}
+    formName={formName}
+    meta={data.meta}
+    images={data.images}
+    hero={data.hero}
+    triggerPoints={data.triggerPoints}
+    selfSelection={data.selfSelection}
+    responseCards={data.responseCards}
+    lifeStages={data.lifeStages}
+    processSteps={data.processSteps}
+    comparisons={data.comparisons}
+    sections={data.sections}
+  />
+)}
+
+{templateType === 'aesthetes' && (
+  <AesthetesTemplate
+    slug={slug}
+    formName={formName}
+    meta={data.meta}
+    images={data.images}
+    hero={data.hero}
+    triggerPoints={data.triggerPoints}
+    selfSelection={data.selfSelection}
+    responseCards={data.responseCards}
+    lifeStages={data.lifeStages}
+    processSteps={data.processSteps}
+    comparisons={data.comparisons}
+    sections={data.sections}
+  />
+)}
+
+{templateType === 'stay-but-grow' && (
+  <StayButGrowTemplate
+    slug={slug}
+    formName={formName}
+    meta={data.meta}
+    images={data.images}
+    hero={data.hero}
+    triggerPoints={data.triggerPoints}
+    selfSelection={data.selfSelection}
+    responseCards={data.responseCards}
+    lifeStages={data.lifeStages}
+    processSteps={data.processSteps}
+    sections={data.sections}
+  />
+)}
