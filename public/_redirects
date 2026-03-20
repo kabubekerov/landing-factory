@@ -1,11 +1,105 @@
-# Public offer aliases for staging.devpartners.ru
-# Rule: every landing has a canonical internal route and a public /offer-* alias.
+# ============================================================
+# Netlify _redirects — DevPartners Landing Factory
+# ============================================================
 # Format:
-# /offer-{campaign} /{canonical-slug}/ 200
-# Example:
-# /offer-745 /745-kvartal/ 200
+#   /path  [query=value]  /destination/  status
 #
-# Add new landing aliases above the catch-all rule.
+# First-batch: /offer?utm_content=XXX → specific landing (302 redirect)
+# Second-batch: /offerNN → specific landing (200 rewrite)
+# ============================================================
+
+# === ПЕРВАЯ РАССЫЛКА: UTM-based redirects ===
+# Netlify matches query params before path-only rules.
+# Each utm_content maps to the specific company landing page.
+
+# ГК ИНСИТИ девелопмент → insity-obrazcovo
+/offer  utm_content=ins-c01  /insity-obrazcovo/  302
+/offer  utm_content=ins-d05  /insity-obrazcovo/  302
+/offer  utm_content=ins-f02  /insity-obrazcovo/  302
+/offer  utm_content=ins-h04  /insity-obrazcovo/  302
+/offer  utm_content=ins-o06  /insity-obrazcovo/  302
+/offer  utm_content=ins-s03  /insity-obrazcovo/  302
+
+# ГК ИКАР → ikar-vysota-323
+/offer  utm_content=ikr-c01  /ikar-vysota-323/  302
+/offer  utm_content=ikr-o02  /ikar-vysota-323/  302
+
+# Объединение застройщиков ВКБ-Новостройки → vkb-gorgippiya
+/offer  utm_content=vkb-c01  /vkb-gorgippiya/  302
+/offer  utm_content=vkb-s02  /vkb-gorgippiya/  302
+/offer  utm_content=vkb-o03  /vkb-gorgippiya/  302
+
+# СПК Зелёный сад → spk-itower
+/offer  utm_content=zsd-c01  /spk-itower/  302
+/offer  utm_content=zsd-d02  /spk-itower/  302
+/offer  utm_content=zsd-o03  /spk-itower/  302
+/offer  utm_content=zsd-b04  /spk-itower/  302
+
+# КОМОССТРОЙ → komosstroy-pokrovskiy
+/offer  utm_content=kms-c01  /komosstroy-pokrovskiy/  302
+/offer  utm_content=kms-s02  /komosstroy-pokrovskiy/  302
+/offer  utm_content=kms-o03  /komosstroy-pokrovskiy/  302
+
+# ГК СДК Сибирская Девелоперская Компания → sibdev-taym-skver
+/offer  utm_content=sdk-c01  /sibdev-taym-skver/  302
+/offer  utm_content=sdk-o02  /sibdev-taym-skver/  302
+
+# ДК ТСИ / Группа ТСИ → tsi-prityazhenie
+/offer  utm_content=tsi-c01  /tsi-prityazhenie/  302
+/offer  utm_content=tsi-o02  /tsi-prityazhenie/  302
+
+# ГК ТРЕСТ / Строительный Трест → 745-kvartal (временно, лендинг не создан)
+/offer  utm_content=trs-c01  /745-kvartal/  302
+/offer  utm_content=trs-f02  /745-kvartal/  302
+/offer  utm_content=trs-s03  /745-kvartal/  302
+/offer  utm_content=trs-d04  /745-kvartal/  302
+/offer  utm_content=trs-o05  /745-kvartal/  302
+
+# ГК Первоград / ГК Град → pervograd-dom-u-rotondy
+/offer  utm_content=гра-o02  /pervograd-dom-u-rotondy/  302
+
+# ГК Первый строительный фонд → psf-perviy-na-titova
+/offer  utm_content=пер-c01  /psf-perviy-na-titova/  302
+
+# Жилищная инициатива → zhilinit-rodnye-berega-2
+/offer  utm_content=жил-c01  /zhilinit-rodnye-berega-2/  302
+
+# Ак Барс Дом → 745-kvartal (временно, лендинг не создан)
+/offer  utm_content=ак-c01  /745-kvartal/  302
+/offer  utm_content=ак-o01  /745-kvartal/  302
+/offer  utm_content=ак-f01  /745-kvartal/  302
+
+# Группа Мета → meta-yasniy-bereg
+/offer  utm_content=гру-c01  /meta-yasniy-bereg/  302
+/offer  utm_content=гру-o01  /meta-yasniy-bereg/  302
+
+# Синара-Девелопмент → sinara-tikhiy-tsentr
+/offer  utm_content=сна-c01  /sinara-tikhiy-tsentr/  302
+/offer  utm_content=сна-o02  /sinara-tikhiy-tsentr/  302
+
+# ПЗСП → pzsp-tancorova-96
+/offer  utm_content=пзс-c01  /pzsp-tancorova-96/  302
+/offer  utm_content=гра-o01  /pzsp-tancorova-96/  302
+
+# ИнтерСтрой → interstroy-listoriya
+/offer  utm_content=инт-c01  /interstroy-listoriya/  302
+/offer  utm_content=инт-o01  /interstroy-listoriya/  302
+
+# СЕВЕРНАЯ КОМПАНИЯ → sk-kiparis
+/offer  utm_content=сев-c01  /sk-kiparis/  302
+
+# ГК Капитал → kapital-krylya
+/offer  utm_content=кап-c01  /kapital-krylya/  302
+
+# СЗ Градстройпроект → gradstroy-narodnye-kvartaly
+/offer  utm_content=гра-c01  /gradstroy-narodnye-kvartaly/  302
+
+# Fallback: /offer без utm_content → 745-kvartal (дефолтный лендинг)
+/offer  /745-kvartal/  302
+
+# ============================================================
+# ВТОРАЯ РАССЫЛКА: offer-number aliases (200 rewrite)
+# ============================================================
 /offer-745 /745-kvartal/ 200
 /offer1 /endemik-established/ 200
 
@@ -38,25 +132,3 @@
 /offer47 /gk-tashir-stellar-city/ 200
 /offer48 /astra-belyy-parus/ 200
 /offer49 /kpd-development-nyu-yort/ 200
-
-# Catch-all redirect for SPA/runtime routing
-/offer801 /offer801 200
-/offer802 /offer802 200
-/offer803 /offer803 200
-/offer804 /offer804 200
-/offer805 /offer805 200
-/offer806 /offer806 200
-/offer807 /offer807 200
-/offer808 /offer808 200
-/offer809 /offer809 200
-/offer810 /offer810 200
-/offer811 /offer811 200
-/offer812 /offer812 200
-/offer813 /offer813 200
-/offer814 /offer814 200
-/offer815 /offer815 200
-/offer816 /offer816 200
-/offer817 /offer817 200
-/offer818 /offer818 200
-/offer819 /offer819 200
-/* /index.html 200
