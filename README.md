@@ -147,3 +147,4 @@ npm run preview
 | Change copy, images, and visual style | Break routing conventions |
 | Publish via canonical page + public offer alias | Share internal slugs as the main campaign URL |
 | Verify on `staging.devpartners.ru` after push | Treat each landing as an unrelated standalone site |
+<- Kept devpartners-logo-v1.png as source verified 2026-03-21T09:17:38Z -->
