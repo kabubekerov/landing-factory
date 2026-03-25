@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Суперкейс по маржинальности КРТ в Москве — DevPartners</title>
+  <meta name="description" content="Поднимаем LLCR вашего КРТ-проекта с 1.15 до 1.40. Финансирование 0/100. Архитектурная концепция, которая проходит Москомархитектуру и продаёт метры на 15-20% выше рынка.">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C4A265;
+      --gold-light: #D4B87A;
+      --gold-dark: #A68845;
+      --warm-white: #F5F0EB;
+      --warm-gray: #A09890;
+      --dark-bg: #1A1918;
+      --darker-bg: #141312;
+      --darkest-bg: #0E0D0C;
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--darkest-bg);
+      color: var(--warm-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.05; font-weight: 500; }
+    h1 { font-size: clamp(36px, 5.5vw, 88px); }
+    h2 { font-size: clamp(28px, 3.5vw, 56px); }
+    h3 { font-size: clamp(20px, 2vw, 32px); }
+    p { font-size: clamp(14px, 1.05vw, 16px); color: var(--warm-gray); line-height: 1.7; }
+
+    /* ─── LAYOUT ─── */
+    .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 640px) { .container { padding: 0 2rem; } }
+    @media (min-width: 1024px) { .container { padding: 0 3rem; } }
+
+    /* ─── UTILITIES ─── */
+    .gold-text {
+      background: linear-gradient(135deg, #D4B87A, #C4A265, #A68845);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .line-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    }
+    .tracking-wide { letter-spacing: 0.2em; }
+    .tracking-wider { letter-spacing: 0.3em; }
+    .uppercase { text-transform: uppercase; }
+    .italic { font-style: italic; }
+
+    /* ─── GRAIN TEXTURE ─── */
+    .grain { position: relative; }
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--darker-bg); }
+    ::-webkit-scrollbar-thumb { background: #3a3835; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #5a5550; }
+
+    /* ═══════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      transform: scale(1.1);
+      transition: transform 0.1s linear;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease-out;
+    }
+    .hero__bg img.loaded { opacity: 1; }
+    .hero__bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(14,13,12,0.55) 0%,
+        rgba(14,13,12,0.45) 50%,
+        rgba(14,13,12,0.95) 100%
+      );
+    }
+    .hero__topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 1.5rem;
+    }
+    @media (min-width: 768px) { .hero__topbar { padding: 2rem 3rem; } }
+    .hero__logo {
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.5);
+      font-weight: 300;
+    }
+    .hero__nav-link {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .hero__nav-link:hover { color: var(--gold); }
+    .hero__content {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 1.5rem 4rem;
+      max-width: 1100px;
+    }
+    @media (min-width: 768px) { .hero__content { padding: 0 3rem 5rem; } }
+    @media (min-width: 1024px) { .hero__content { padding: 0 5rem 6rem; } }
+    .hero__tag {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .hero__title {
+      color: var(--warm-white);
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+    .hero__subtitle {
+      font-size: clamp(16px, 1.3vw, 20px);
+      color: rgba(245,240,235,0.65);
+      max-width: 640px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .hero__scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      animation: float 2s ease-in-out infinite;
+    }
+    .hero__scroll svg { width: 24px; height: 24px; color: rgba(245,240,235,0.25); }
+    @keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+    /* Hero entrance animations */
+    .hero__tag, .hero__title, .hero__subtitle {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: heroEnter 1s ease-out forwards;
+    }
+    .hero__tag { animation-delay: 0.3s; }
+    .hero__title { animation-delay: 0.5s; }
+    .hero__subtitle { animation-delay: 0.7s; }
+    @keyframes heroEnter { to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══════════════════════════════════════════
+       METRICS BAR
+    ═══════════════════════════════════════════ */
+    .metrics { background: var(--darker-bg); padding: 4rem 0; }
+    @media (min-width: 768px) { .metrics { padding: 5rem 0; } }
+    .metrics__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .metrics__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+      }
+      .metrics__item:not(:last-child) {
+        border-right: 1px solid rgba(255,255,255,0.06);
+      }
+    }
+    .metrics__item { padding: 0 2rem; }
+    .metrics__number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(48px, 5vw, 72px);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .metrics__number--gold { color: var(--gold); }
+    .metrics__number--white { color: var(--warm-white); }
+    .metrics__label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
+
+    /* ═══════════════════════════════════════════
+       TRIGGERS SECTION
+    ═══════════════════════════════════════════ */
+    .triggers { background: var(--darkest-bg); padding: 6rem 0; position: relative; }
+    @media (min-width: 768px) { .triggers { padding: 8rem 0; } }
+    .section-tag {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .section-title {
+      color: var(--warm-white);
+      margin-bottom: 4rem;
+      max-width: 700px;
+    }
+    @media (min-width: 768px) { .section-title { margin-bottom: 5rem; } }
+    .section-title .muted { color: rgba(245,240,235,0.5); font-style: italic; }
+    .triggers__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 1024px) { .triggers__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+    .trigger-card {
+      position: relative;
+      padding: 2.5rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.015);
+      transition: background 0.5s, border-color 0.5s;
+      overflow: hidden;
+    }
+    .trigger-card:hover {
+      background: rgba(255,255,255,0.03);
+      border-color: var(--border-hover);
+    }
+    .trigger-card__icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(196,162,101,0.3);
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .trigger-card__icon svg { width: 20px; height: 20px; }
+    .trigger-card__label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      margin-left: 0.75rem;
+    }
+    .trigger-card__top { display: flex; align-items: center; margin-bottom: 1.5rem; }
+    .trigger-card h3 { color: var(--warm-white); margin-bottom: 1rem; }
+    .trigger-card p { font-size: 0.9rem; line-height: 1.7; }
+    .trigger-card__line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.7s ease;
+    }
+    .trigger-card:hover .trigger-card__line { transform: scaleX(1); }
+
+    /* ═══════════════════════════════════════════
+       QUALIFIER SECTION
+    ═══════════════════════════════════════════ */
+    .qualifier { background: var(--dark-bg); padding: 6rem 0; }
+    @media (min-width: 768px) { .qualifier { padding: 8rem 0; } }
+    .qualifier__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .qualifier__grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+    .qualifier__image {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .qualifier__image img { width: 100%; height: 100%; object-fit: cover; }
+    .qualifier__image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--dark-bg) 0%, transparent 50%);
+      opacity: 0.5;
+    }
+    .qualifier__checklist { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+    .qualifier__check-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .qualifier__check-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .qualifier__check-text { color: rgba(245,240,235,0.75); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ═══════════════════════════════════════════
+       AHA MOMENTS
+    ═══════════════════════════════════════════ */
+    .aha { background: var(--darkest-bg); }
+    .aha-moment { padding: 5rem 0; }
+    @media (min-width: 768px) { .aha-moment { padding: 7rem 0; } }
+    .aha-moment__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .aha-moment__grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+    .aha-moment--reverse .aha-moment__grid { direction: rtl; }
+    .aha-moment--reverse .aha-moment__grid > * { direction: ltr; }
+    .aha-moment__image {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .aha-moment__image img { width: 100%; height: 100%; object-fit: cover; }
+    .aha-moment__number {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(56px, 6vw, 80px);
+      font-weight: 700;
+      color: rgba(255,255,255,0.06);
+    }
+    .aha-moment__tag {
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .aha-moment h3 { color: var(--warm-white); margin-bottom: 0.75rem; }
+    .aha-moment__subtitle {
+      color: rgba(196,162,101,0.65);
+      font-style: italic;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .aha-moment__text { font-size: 0.9rem; line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════
+       PROCESS SECTION
+    ═══════════════════════════════════════════ */
+    .process { background: var(--dark-bg); padding: 6rem 0; position: relative; }
+    @media (min-width: 768px) { .process { padding: 8rem 0; } }
+    .process__timeline { position: relative; }
+    .process__line {
+      display: none;
+      position: absolute;
+      left: 2rem;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(196,162,101,0.4), rgba(196,162,101,0.1), transparent);
+    }
+    @media (min-width: 768px) { .process__line { display: block; } }
+    .process__steps { display: flex; flex-direction: column; gap: 2rem; }
+    @media (min-width: 768px) { .process__steps { gap: 3rem; } }
+    .process-step {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    @media (min-width: 768px) { .process-step { gap: 2.5rem; } }
+    .process-step__number {
+      position: relative;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(196,162,101,0.3);
+      background: var(--darkest-bg);
+      color: var(--gold);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      flex-shrink: 0;
+      transition: all 0.5s;
+    }
+    @media (min-width: 768px) {
+      .process-step__number { width: 64px; height: 64px; font-size: 1.5rem; }
+    }
+    .process-step:hover .process-step__number {
+      background: var(--gold);
+      color: var(--darkest-bg);
+    }
+    .process-step__content {
+      flex: 1;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .process-step__header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .process-step__header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .process-step h3 { color: var(--warm-white); }
+    .process-step__duration {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      flex-shrink: 0;
+    }
+    .process-step p { font-size: 0.9rem; max-width: 600px; }
+
+    /* ═══════════════════════════════════════════
+       COMPARISON TABLE
+    ═══════════════════════════════════════════ */
+    .comparison { background: var(--darkest-bg); padding: 6rem 0; }
+    @media (min-width: 768px) { .comparison { padding: 8rem 0; } }
+    .comparison__table { max-width: 900px; margin: 0 auto; }
+    .comparison__header {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .comparison__col-title {
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .comparison__col-title--gray { color: var(--warm-gray); }
+    .comparison__col-title--gold { color: var(--gold); }
+    .comparison__row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      transition: background 0.3s;
+    }
+    .comparison__row:hover { background: rgba(255,255,255,0.015); }
+    .comparison__label { font-size: 0.9rem; color: var(--warm-white); font-weight: 500; }
+    .comparison__value { text-align: center; font-size: 0.9rem; }
+    .comparison__value--gray { color: var(--warm-gray); }
+    .comparison__value--gold { color: var(--gold); font-weight: 500; }
+
+    /* ═══════════════════════════════════════════
+       EVOLUTION SECTION
+    ═══════════════════════════════════════════ */
+    .evolution { background: var(--dark-bg); padding: 6rem 0; }
+    @media (min-width: 768px) { .evolution { padding: 8rem 0; } }
+    .evolution__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) { .evolution__grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+    .evolution__text p { margin-bottom: 1.5rem; }
+    .evolution__ladder { display: flex; flex-direction: column; gap: 1rem; }
+    .evolution-level {
+      position: relative;
+      padding: 1.5rem 2rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.008);
+      transition: all 0.5s;
+    }
+    .evolution-level--inactive { opacity: 0.55; }
+    .evolution-level--active {
+      border-color: rgba(196,162,101,0.4);
+      background: rgba(196,162,101,0.04);
+    }
+    .evolution-level__inner { display: flex; align-items: flex-start; gap: 1rem; }
+    .evolution-level__number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 2.5vw, 40px);
+      font-weight: 700;
+    }
+    .evolution-level--inactive .evolution-level__number { color: rgba(255,255,255,0.08); }
+    .evolution-level--active .evolution-level__number { color: var(--gold); }
+    .evolution-level__name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(16px, 1.3vw, 20px);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .evolution-level--inactive .evolution-level__name { color: rgba(245,240,235,0.5); }
+    .evolution-level--active .evolution-level__name { color: var(--gold); }
+    .evolution-level__desc { font-size: 0.85rem; color: var(--warm-gray); }
+    .evolution-level__bar {
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 48px;
+      background: var(--gold);
+    }
+
+    /* ═══════════════════════════════════════════
+       CONTACT SECTION
+    ═══════════════════════════════════════════ */
+    .contact { position: relative; padding: 6rem 0; overflow: hidden; }
+    @media (min-width: 768px) { .contact { padding: 8rem 0; } }
+    .contact__bg {
+      position: absolute;
+      inset: 0;
+    }
+    .contact__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+    }
+    .contact__bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, var(--darkest-bg), rgba(14,13,12,0.92), var(--darkest-bg));
+    }
+    .contact__grid {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 1024px) { .contact__grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+    .contact__benefits { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .contact__benefit { display: flex; align-items: center; gap: 0.75rem; }
+    .contact__benefit-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .contact__benefit-text { color: rgba(245,240,235,0.65); font-size: 0.85rem; }
+
+    /* Form */
+    .form-box {
+      padding: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.015);
+      backdrop-filter: blur(8px);
+    }
+    @media (min-width: 768px) { .form-box { padding: 3rem; } }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 0.5rem;
+    }
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      color: var(--warm-white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 0;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-input::placeholder { color: rgba(160,152,144,0.4); }
+    .form-input:focus { border-color: rgba(196,162,101,0.5); }
+    .form-submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--gold);
+      color: var(--darkest-bg);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+    .form-submit svg { width: 16px; height: 16px; }
+    .form-success {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .form-success svg { width: 48px; height: 48px; color: var(--gold); margin: 0 auto 1rem; }
+    .form-success h3 { color: var(--warm-white); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.85rem; }
+    .form-note {
+      font-size: 0.7rem;
+      color: var(--warm-gray);
+      text-align: center;
+      margin-top: 1rem;
+      opacity: 0.6;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: var(--darkest-bg);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.03);
+    }
+    .footer__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .footer__inner { flex-direction: row; justify-content: space-between; }
+    }
+    .footer__logo {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(160,152,144,0.35);
+    }
+    .footer__copy { font-size: 0.7rem; color: rgba(160,152,144,0.25); }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" id="heroBg">
+      <img id="heroImg" alt="КРТ-квартал в Москве">
+      <div class="hero__bg-overlay"></div>
+    </div>
+
+    <div class="hero__topbar">
+      <div class="hero__logo">DevPartners</div>
+      <a href="#contact" class="hero__nav-link">Связаться</a>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__tag">Полный цикл для КРТ в Москве</p>
+      <h1 class="hero__title">LLCR вашего проекта:<br><span class="gold-text">1.15 → 1.40</span></h1>
+      <p class="hero__subtitle">Архитектурная концепция, которая одновременно проходит Москомархитектуру, обосновывает банку высокую маржинальность и создаёт продукт, продающийся на 15–20% выше рынка.</p>
+    </div>
+
+    <div class="hero__scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+  </section>
+
+  <!-- ═══ METRICS BAR ═══ -->
+  <section class="metrics">
+    <div class="container">
+      <div class="metrics__grid reveal">
+        <div class="metrics__item">
+          <div class="metrics__number metrics__number--gold" data-target="1.40" data-decimals="2">0</div>
+          <div class="metrics__label">Целевой LLCR</div>
+        </div>
+        <div class="metrics__item">
+          <div class="metrics__number metrics__number--white">0/100</div>
+          <div class="metrics__label">Схема финансирования</div>
+        </div>
+        <div class="metrics__item">
+          <div class="metrics__number metrics__number--gold" data-target="18" data-decimals="0" data-prefix="+" data-suffix="%">0</div>
+          <div class="metrics__label">К маржинальности проекта</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-divider"></div>
+
+  <!-- ═══ TRIGGERS ═══ -->
+  <section class="triggers grain" id="triggers">
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="reveal">
+        <p class="section-tag">Знакомая ситуация?</p>
+        <h2 class="section-title">Три барьера, которые <br><span class="muted">съедают вашу маржу</span></h2>
+      </div>
+
+      <div class="triggers__grid">
+        <div class="trigger-card reveal">
+          <div class="trigger-card__top">
+            <div class="trigger-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </div>
+            <span class="trigger-card__label">Финансы</span>
+          </div>
+          <h3>LLCR = 1.10–1.20</h3>
+          <p>Банк даёт только 30/70. Вы вкладываете собственные 30% — это сотни миллионов, замороженных на 3–4 года. При LLCR ниже 1.25 проектное финансирование 0/100 недоступно.</p>
+          <div class="trigger-card__line"></div>
+        </div>
+
+        <div class="trigger-card reveal">
+          <div class="trigger-card__top">
+            <div class="trigger-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <span class="trigger-card__label">Согласования</span>
+          </div>
+          <h3>Москомархитектура ужесточает требования</h3>
+          <p>С 2024 года стандартные панельные ЖК не проходят архитектурный совет. Нужна уникальная концепция от признанного бюро. Каждый месяц задержки — потерянные проценты по кредиту.</p>
+          <div class="trigger-card__line"></div>
+        </div>
+
+        <div class="trigger-card reveal">
+          <div class="trigger-card__top">
+            <div class="trigger-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+            <span class="trigger-card__label">КРТ</span>
+          </div>
+          <h3>Соцнагрузка убивает маржу</h3>
+          <p>Школы, детсады, поликлиники — за ваш счёт. Это +15–20% к себестоимости. Без правильного продуктового микса и ценовой стратегии проект уходит в ноль.</p>
+          <div class="trigger-card__line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUALIFIER ═══ -->
+  <section class="qualifier" id="qualifier">
+    <div class="container">
+      <div class="qualifier__grid">
+        <div class="qualifier__image reveal">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/EtxB9rJmtbRJAB4rMQuvQR/krt-boardroom-SUKv6r9byCv7sJDoNSigoP.webp" alt="Переговорная девелопера">
+          <div class="qualifier__image-overlay"></div>
+        </div>
+        <div class="reveal">
+          <p class="section-tag">Для кого это</p>
+          <h2 style="color:var(--warm-white);margin-bottom:2rem;">Если вы — CEO девелопера с участком КРТ в Москве</h2>
+          <div class="qualifier__checklist">
+            <div class="qualifier__check-item">
+              <svg class="qualifier__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="qualifier__check-text">У вас участок от 5 Га под комплексное развитие территории</span>
+            </div>
+            <div class="qualifier__check-item">
+              <svg class="qualifier__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="qualifier__check-text">Вы уже столкнулись с LLCR ниже 1.25 при текущей концепции</span>
+            </div>
+            <div class="qualifier__check-item">
+              <svg class="qualifier__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="qualifier__check-text">Москомархитектура требует «архитектурное лицо» проекта</span>
+            </div>
+            <div class="qualifier__check-item">
+              <svg class="qualifier__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="qualifier__check-text">Соцнагрузка (школы, детсады) съедает маржу</span>
+            </div>
+            <div class="qualifier__check-item">
+              <svg class="qualifier__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="qualifier__check-text">Вы ищете способ получить финансирование 0/100</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AHA MOMENTS ═══ -->
+  <section class="aha" id="aha">
+    <div class="line-divider"></div>
+
+    <!-- Aha 01 -->
+    <div class="aha-moment">
+      <div class="container">
+        <div class="aha-moment__grid reveal">
+          <div class="aha-moment__image">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/EtxB9rJmtbRJAB4rMQuvQR/krt-masterplan-mMHShZtntwvjdeTdudvnpt.webp" alt="Финансово-архитектурный бриф">
+            <div class="aha-moment__number">01</div>
+          </div>
+          <div>
+            <p class="aha-moment__tag">Aha-момент 01</p>
+            <h3>Финансово-архитектурный бриф</h3>
+            <p class="aha-moment__subtitle">LLCR как входной параметр для архитектора</p>
+            <p class="aha-moment__text">Мы не рисуем «красивые картинки». Мы начинаем с финансовой модели: целевой LLCR, требуемая цена продажи, допустимая себестоимость. Архитектор получает бриф с конкретными цифрами — и проектирует под них. Результат: концепция, которая по определению проходит банковскую модель.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="line-divider"></div>
+
+    <!-- Aha 02 -->
+    <div class="aha-moment aha-moment--reverse">
+      <div class="container">
+        <div class="aha-moment__grid reveal">
+          <div class="aha-moment__image">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/EtxB9rJmtbRJAB4rMQuvQR/krt-facade-X6KzZC8Gx8577F722xQDw6.webp" alt="Китайское архитектурное бюро">
+            <div class="aha-moment__number">02</div>
+          </div>
+          <div>
+            <p class="aha-moment__tag">Aha-момент 02</p>
+            <h3>Китайское бюро — не экзотика, а инструмент</h3>
+            <p class="aha-moment__subtitle">Международное имя за половину московской цены</p>
+            <p class="aha-moment__text">Топовые китайские бюро (MAD Architects, NBBJ China, Aedas) проектируют быстрее, дешевле и смелее московских. Их имя — аргумент для Москомархитектуры. Их опыт в мега-проектах — гарантия реализуемости. Мы адаптируем проект под российские СНиПы и нормы.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="line-divider"></div>
+
+    <!-- Aha 03 -->
+    <div class="aha-moment">
+      <div class="container">
+        <div class="aha-moment__grid reveal">
+          <div class="aha-moment__image">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/EtxB9rJmtbRJAB4rMQuvQR/krt-construction-o4Jbg7qz3XTMMiQnwUteYW.webp" alt="Продуктовый микс">
+            <div class="aha-moment__number">03</div>
+          </div>
+          <div>
+            <p class="aha-moment__tag">Aha-момент 03</p>
+            <h3>Продуктовый микс для максимальной маржи</h3>
+            <p class="aha-moment__subtitle">JTBD-исследование покупателей до начала проектирования</p>
+            <p class="aha-moment__text">Мы исследуем, кто реально будет покупать квартиры в вашем КРТ. Не «целевая аудитория», а конкретные жизненные ситуации. Это определяет квартирографию, нарезку, этажность — и позволяет продавать метры на 15–20% выше рынка.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-divider"></div>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section class="process grain" id="process">
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="reveal" style="margin-bottom:4rem;">
+        <p class="section-tag">Процесс</p>
+        <h2 class="section-title">От исследования до защиты <br><span class="muted">за 4–6 месяцев</span></h2>
+      </div>
+
+      <div class="process__timeline">
+        <div class="process__line"></div>
+        <div class="process__steps">
+
+          <div class="process-step reveal">
+            <div class="process-step__number">1</div>
+            <div class="process-step__content">
+              <div class="process-step__header">
+                <h3>JTBD-исследование</h3>
+                <span class="process-step__duration">3–4 недели</span>
+              </div>
+              <p>Глубинные интервью с покупателями. Определяем, кто реально купит и за какую цену.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-step__number">2</div>
+            <div class="process-step__content">
+              <div class="process-step__header">
+                <h3>Финансовая модель</h3>
+                <span class="process-step__duration">2–3 недели</span>
+              </div>
+              <p>Строим модель с целевым LLCR ≥ 1.35. Определяем допустимую себестоимость и ценовую стратегию.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-step__number">3</div>
+            <div class="process-step__content">
+              <div class="process-step__header">
+                <h3>Архитектурная концепция</h3>
+                <span class="process-step__duration">8–12 недель</span>
+              </div>
+              <p>Китайское бюро проектирует под финансовый бриф. Генплан, фасады, квартирография.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-step__number">4</div>
+            <div class="process-step__content">
+              <div class="process-step__header">
+                <h3>Адаптация под РФ</h3>
+                <span class="process-step__duration">4–6 недель</span>
+              </div>
+              <p>Приводим проект в соответствие с СНиПами, нормами инсоляции, пожарной безопасности.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="process-step__number">5</div>
+            <div class="process-step__content">
+              <div class="process-step__header">
+                <h3>Защита перед банком</h3>
+                <span class="process-step__duration">2–3 недели</span>
+              </div>
+              <p>Готовим пакет для кредитного комитета: финмодель + концепция + обоснование LLCR.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPARISON ═══ -->
+  <section class="comparison" id="comparison">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:4rem;">
+        <p class="section-tag">Сравнение</p>
+        <h2 style="color:var(--warm-white);">Стандартный подход <span class="muted">vs.</span> DevPartners</h2>
+      </div>
+
+      <div class="comparison__table">
+        <div class="comparison__header">
+          <div></div>
+          <div class="comparison__col-title comparison__col-title--gray">Стандартно</div>
+          <div class="comparison__col-title comparison__col-title--gold">DevPartners</div>
+        </div>
+
+        <div class="comparison__row reveal">
+          <div class="comparison__label">LLCR</div>
+          <div class="comparison__value comparison__value--gray">1.10–1.20</div>
+          <div class="comparison__value comparison__value--gold">1.35–1.45</div>
+        </div>
+        <div class="comparison__row reveal">
+          <div class="comparison__label">Финансирование</div>
+          <div class="comparison__value comparison__value--gray">30/70</div>
+          <div class="comparison__value comparison__value--gold">0/100</div>
+        </div>
+        <div class="comparison__row reveal">
+          <div class="comparison__label">Москомархитектура</div>
+          <div class="comparison__value comparison__value--gray">Риск отказа</div>
+          <div class="comparison__value comparison__value--gold">Международное бюро</div>
+        </div>
+        <div class="comparison__row reveal">
+          <div class="comparison__label">Цена продажи</div>
+          <div class="comparison__value comparison__value--gray">По рынку</div>
+          <div class="comparison__value comparison__value--gold">+15–20% к рынку</div>
+        </div>
+        <div class="comparison__row reveal">
+          <div class="comparison__label">Соцнагрузка</div>
+          <div class="comparison__value comparison__value--gray">Убивает маржу</div>
+          <div class="comparison__value comparison__value--gold">Учтена в модели</div>
+        </div>
+        <div class="comparison__row reveal">
+          <div class="comparison__label">Срок концепции</div>
+          <div class="comparison__value comparison__value--gray">6–12 месяцев</div>
+          <div class="comparison__value comparison__value--gold">4–6 месяцев</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-divider"></div>
+
+  <!-- ═══ EVOLUTION ═══ -->
+  <section class="evolution" id="evolution">
+    <div class="container">
+      <div class="evolution__grid">
+        <div class="evolution__text reveal">
+          <p class="section-tag">Эволюция</p>
+          <h2 style="color:var(--warm-white);margin-bottom:1.5rem;">Вы уже не просто строите дома</h2>
+          <p>КРТ — это другой уровень девелопмента. Здесь нужны не просто архитекторы, а стратегический партнёр, который понимает финансовую модель, городское планирование и умеет работать с международными бюро.</p>
+          <p>DevPartners работает именно на этом уровне — на стыке архитектуры, финансов и городской политики.</p>
+        </div>
+
+        <div class="evolution__ladder reveal">
+          <div class="evolution-level evolution-level--inactive">
+            <div class="evolution-level__inner">
+              <div class="evolution-level__number">01</div>
+              <div>
+                <div class="evolution-level__name">Строитель</div>
+                <div class="evolution-level__desc">Строит отдельные ЖК. Работает с типовыми проектами. Конкурирует ценой.</div>
+              </div>
+            </div>
+          </div>
+          <div class="evolution-level evolution-level--inactive">
+            <div class="evolution-level__inner">
+              <div class="evolution-level__number">02</div>
+              <div>
+                <div class="evolution-level__name">Продуктовый девелопер</div>
+                <div class="evolution-level__desc">Создаёт продукт с УТП. Думает о покупателе. Работает с архитекторами.</div>
+              </div>
+            </div>
+          </div>
+          <div class="evolution-level evolution-level--inactive">
+            <div class="evolution-level__inner">
+              <div class="evolution-level__number">03</div>
+              <div>
+                <div class="evolution-level__name">Системный девелопер</div>
+                <div class="evolution-level__desc">Управляет портфелем проектов. Оптимизирует финмодели. Работает с банками.</div>
+              </div>
+            </div>
+          </div>
+          <div class="evolution-level evolution-level--active">
+            <div class="evolution-level__inner">
+              <div class="evolution-level__number">04</div>
+              <div>
+                <div class="evolution-level__name">Стратег города</div>
+                <div class="evolution-level__desc">Работает с КРТ, мыслит кварталами. Согласования с мэрией, банком, международные бюро.</div>
+              </div>
+            </div>
+            <div class="evolution-level__bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="line-divider"></div>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="contact" id="contact">
+    <div class="contact__bg">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/EtxB9rJmtbRJAB4rMQuvQR/krt-construction-o4Jbg7qz3XTMMiQnwUteYW.webp" alt="">
+      <div class="contact__bg-overlay"></div>
+    </div>
+
+    <div class="container">
+      <div class="contact__grid">
+        <div class="reveal">
+          <p class="section-tag">Следующий шаг</p>
+          <h2 style="color:var(--warm-white);margin-bottom:1.5rem;">Разберём потенциал<br>вашего участка</h2>
+          <p style="margin-bottom:2rem;">30-минутный звонок, на котором мы оценим ваш участок КРТ и покажем, как поднять LLCR до уровня финансирования 0/100. Без обязательств.</p>
+          <div class="contact__benefits">
+            <div class="contact__benefit">
+              <div class="contact__benefit-dot"></div>
+              <span class="contact__benefit-text">Предварительная оценка LLCR вашего проекта</span>
+            </div>
+            <div class="contact__benefit">
+              <div class="contact__benefit-dot"></div>
+              <span class="contact__benefit-text">Анализ потенциала участка для КРТ</span>
+            </div>
+            <div class="contact__benefit">
+              <div class="contact__benefit-dot"></div>
+              <span class="contact__benefit-text">Рекомендации по архитектурной стратегии</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="form-box">
+            <form name="contact-krt-margin" method="POST" data-netlify="true" id="contactForm">
+              <input type="hidden" name="form-name" value="contact-krt-margin">
+              <div class="form-group">
+                <label class="form-label" for="name">Имя</label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Телефон</label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="company">Компания</label>
+                <input class="form-input" type="text" id="company" name="company" placeholder="Название девелопера">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="project">Кратко об участке</label>
+                <input class="form-input" type="text" id="project" name="project" placeholder="Площадь, район Москвы, текущий статус">
+              </div>
+              <button type="submit" class="form-submit">
+                Обсудить проект
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+              <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+            </form>
+            <div class="form-success" id="formSuccess" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <h3>Заявка отправлена</h3>
+              <p>Мы свяжемся с вами в течение 24 часов</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">DevPartners</div>
+        <div class="footer__copy">© 2025 DevPartners · Стратегический интегратор для девелоперов КРТ</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Hero image preload ───
+    const heroImg = document.getElementById('heroImg');
+    const img = new Image();
+    img.onload = () => {
+      heroImg.src = img.src;
+      heroImg.classList.add('loaded');
+    };
+    img.src = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663259840902/EtxB9rJmtbRJAB4rMQuvQR/krt-hero-inwafbsebWxNBNuT7QJJx5.webp';
+
+    // ─── Parallax on hero ───
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight * 1.5) {
+        heroBg.style.transform = 'translateY(' + (y * 0.25) + 'px) scale(1.1)';
+      }
+    }, { passive: true });
+
+    // ─── Scroll reveal ───
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // ─── Counter animation ───
+    const counters = document.querySelectorAll('[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseFloat(el.dataset.target);
+          const decimals = parseInt(el.dataset.decimals || '0');
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          const duration = 2200;
+          const start = performance.now();
+
+          function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutExpo(progress);
+            const current = eased * target;
+            el.textContent = prefix + current.toFixed(decimals) + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              el.textContent = prefix + target.toFixed(decimals) + suffix;
+            }
+          }
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    // ─── Smooth scroll ───
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ─── Form handling ───
+    const form = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Отправляем...';
+
+      const formData = new FormData(form);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+      })
+      .catch(() => {
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+      });
+    });
+  </script>
+
+</body>
+</html>
