@@ -957,4 +957,54 @@
     .triggers745 {
       grid-template-columns: 1fr;
     }
+    .comparisons745__grid {
+      grid-template-columns: 1fr;
+    }
+}
+
+/* COMPARISONS BLOCK */
+.comparisons745 {
+  position: relative;
+  padding: 120px 0;
+}
+.comparisons745__container {
+  position: relative;
+  z-index: 2;
+}
+.comparisons745__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.comparison745-card {
+  background: rgba(255, 246, 237, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 246, 237, 0.12);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.comparison745-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+.comparison745-card__overline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 246, 237, 0.6);
+  margin-bottom: 0.75rem;
+}
+.comparison745-card h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: rgba(255, 246, 237, 0.98);
+  margin-bottom: 0.75rem;
+}
+.comparison745-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 246, 237, 0.78);
 }

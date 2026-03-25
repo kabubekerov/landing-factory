@@ -200,6 +200,28 @@ const s = sections;
         </div>
       </section>
 
+      <!-- COMPARISONS -->
+      {comparisons && comparisons.length > 0 && (
+        <section class="section comparisons745 section--photo-soft" style={`--section-bg: url(${images.compare})`}>
+          <div class="responses745__veil"></div>
+          <div class="container comparisons745__container">
+            <div class="section745-heading center745 section745-heading--light">
+              {s.compare?.eyebrow && <p class="immersive745__eyebrow" set:html={s.compare.eyebrow}></p>}
+              {s.compare?.h2 && <h2 set:html={s.compare.h2}></h2>}
+            </div>
+            <div class="comparisons745__grid">
+              {comparisons.map((comp: any) => (
+                <article class="comparison745-card">
+                  <div class="comparison745-card__overline" set:html={comp.overline}></div>
+                  <h3 set:html={comp.title}></h3>
+                  <p set:html={comp.text}></p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <!-- PROCESS -->
       <section class="section process745 section--photo-band" style={`--section-bg: url(${images.footer})`}>
         <div class="section-band745__overlay section-band745__overlay--dark"></div>
