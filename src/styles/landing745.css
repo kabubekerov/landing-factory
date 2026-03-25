@@ -63,7 +63,7 @@
   }
 
   .hero745 {
-    min-height: clamp(760px, 92vh, 980px);
+    min-height: 100vh;
     display: flex;
     align-items: stretch;
     padding: 36px 0 28px;
@@ -98,8 +98,9 @@
     flex-direction: column;
     gap: 18px;
     justify-content: center;
-    padding-top: clamp(88px, 10vh, 120px);
-    min-height: clamp(700px, calc(92vh - 64px), 900px);
+    padding-top: clamp(72px, 8vh, 100px);
+    padding-bottom: clamp(48px, 5vh, 72px);
+    min-height: calc(100vh - 64px);
   }
 
   .hero745__label,
@@ -927,7 +928,7 @@
 
     @media (max-width: 560px) {
     .hero745 {
-      min-height: auto;
+      min-height: 100svh;
       padding: 24px 0 56px;
     }
     .hero745__content--glass,
