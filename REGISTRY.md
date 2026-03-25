@@ -69,7 +69,8 @@
 | Продукт | Описание | Ссылка |
 |---|---|---|
 | DevPartners | Китайская архитектура для КРТ и Light Industrial | [https://devpartners.ru/china-arch/](https://devpartners.ru/china-arch/) |
+| DevPartners | Китайская архитектура для сложного КРТ (региональный девелопер, до 10 Га) | [https://devpartners.ru/china-arch-krt/](https://devpartners.ru/china-arch-krt/) |
 
 ---
 
-*Обновлено: 22 марта 2026*
+*Обновлено: 25 марта 2026*
