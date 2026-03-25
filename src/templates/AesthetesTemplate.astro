@@ -219,6 +219,28 @@ const s = sections;
         </div>
       </section>
 
+      <!-- COMPARISONS / ADVANTAGES -->
+      {comparisons.length > 0 && (
+        <section class="section compare745 section--dark">
+          <div class="container compare745__container">
+            {s.compare?.h2 && (
+              <div class="section745-heading center745 section745-heading--light">
+                <h2 set:html={s.compare.h2}></h2>
+              </div>
+            )}
+            <div class="compare745__grid">
+              {comparisons.map((item: any) => (
+                <article class="compare745-card">
+                  {item.overline && <p class="compare745-card__overline" set:html={item.overline}></p>}
+                  <h3 set:html={item.title}></h3>
+                  <p set:html={item.text}></p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <!-- FINAL / FORM -->
       <section id="contact" class="section final745 final745--photo">
         <div class="final745__backdrop" style={`--final-bg: url(${images.footer})`}></div>
