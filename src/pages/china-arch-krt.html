@@ -74,24 +74,24 @@
     ═══════════════════════════════════════ */
     .trigger-bar {
       background: var(--text-dark);
-      padding: 0;
-      overflow: hidden;
+      padding: 20px 0;
     }
     .trigger-track {
       display: flex;
-      animation: marquee 30s linear infinite;
-      white-space: nowrap;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
     }
-    .trigger-track:hover { animation-play-state: paused; }
     .trigger-item {
-      display: inline-flex; align-items: center; gap: 12px;
-      padding: 14px 32px;
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7);
-      letter-spacing: 0.02em; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 10px 28px;
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.8);
+      letter-spacing: 0.01em;
+      border-right: 1px solid rgba(255,255,255,0.15);
     }
-    .trigger-item .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .trigger-item strong { color: white; }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .trigger-item:last-child { border-right: none; }
+    .trigger-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .trigger-item strong { color: white; font-weight: 700; }
 
     /* ═══════════════════════════════════════
        BLOCK 1: NAV
@@ -133,10 +133,11 @@
       position: absolute; inset: 0;
       background: linear-gradient(
         to top,
-        rgba(10,8,6,0.92) 0%,
-        rgba(10,8,6,0.55) 40%,
-        rgba(10,8,6,0.15) 70%,
-        transparent 100%
+        rgba(8,6,4,0.97) 0%,
+        rgba(8,6,4,0.82) 35%,
+        rgba(8,6,4,0.60) 60%,
+        rgba(8,6,4,0.35) 80%,
+        rgba(8,6,4,0.12) 100%
       );
     }
     .hero-content {
@@ -495,10 +496,6 @@
   <!-- ═══ TRIGGER BAR ═══ -->
   <div class="trigger-bar">
     <div class="trigger-track" id="triggerTrack">
-      <span class="trigger-item"><span class="dot"></span>Взяли сложный участок КРТ в Москве, от которого отказались местные — <strong>экономика не сходится</strong></span>
-      <span class="trigger-item"><span class="dot"></span>Банк режет финансирование: <strong>LLCR ниже порога</strong>, типовая архитектура не обосновывает цену</span>
-      <span class="trigger-item"><span class="dot"></span>Город заворачивает концепцию: <strong>нет интеграции функций</strong>, нет 15-минутной среды</span>
-      <span class="trigger-item"><span class="dot"></span>Московские бюро предлагают то же, что уже не работает — <strong>сроки горят</strong></span>
       <span class="trigger-item"><span class="dot"></span>Взяли сложный участок КРТ в Москве, от которого отказались местные — <strong>экономика не сходится</strong></span>
       <span class="trigger-item"><span class="dot"></span>Банк режет финансирование: <strong>LLCR ниже порога</strong>, типовая архитектура не обосновывает цену</span>
       <span class="trigger-item"><span class="dot"></span>Город заворачивает концепцию: <strong>нет интеграции функций</strong>, нет 15-минутной среды</span>
