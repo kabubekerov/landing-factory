@@ -7,15 +7,15 @@
     "description": "Поднимаем LLCR вашего КРТ-проекта с 1.15 до 1.40 через архитектурную концепцию, которая проходит Москомархитектуру, получает финансирование 0/100 и продаёт метры выше рынка. Полный цикл: от JTBD-исследования до защиты перед кредитным комитетом."
   },
   "images": {
-    "hero": "/assets/krt-margin/hero_hero.jpg",
-    "aha1": "/assets/krt-margin/aha1_llcr.jpg",
-    "aha2": "/assets/krt-margin/aha2_moskomarh.jpg",
-    "aha3": "/assets/krt-margin/aha3_margin.jpg",
-    "qualifier": "/assets/krt-margin/qualifier_who.jpg",
-    "evolution": "/assets/krt-margin/evolution_levels.jpg",
-    "compare": "/assets/krt-margin/evolution_levels.jpg",
-    "footer": "/assets/krt-margin/footer_cta.jpg",
-    "currentPositioning": "/assets/krt-margin/current_positioning.png"
+    "hero": "/assets/krt-margin/hero_hero.webp",
+    "aha1": "/assets/krt-margin/aha1_llcr.webp",
+    "aha2": "/assets/krt-margin/aha2_moskomarh.webp",
+    "aha3": "/assets/krt-margin/aha3_margin.webp",
+    "qualifier": "/assets/krt-margin/qualifier_who.webp",
+    "evolution": "/assets/krt-margin/evolution_levels.webp",
+    "compare": "/assets/krt-margin/evolution_levels.webp",
+    "footer": "/assets/krt-margin/footer_cta.webp",
+    "currentPositioning": "/assets/krt-margin/current_positioning.webp"
   },
   "hero": {
     "label": "Полный цикл для КРТ в Москве: от исследования спроса до защиты перед кредитным комитетом",
@@ -46,7 +46,7 @@
       "answer": "DevPartners переводит архитектурные решения в язык финансовой модели. Мы формируем финансово-архитектурный бриф, который показывает банку, как конкретные пространственные решения — Light Industrial, смешанное использование, премиальное благоустройство — создают диверсифицированную выручку и поднимают LLCR с 1.15 до 1.40.",
       "detail": "Результат: не альбом визуализаций, а документ для кредитного комитета, который напрямую влияет на условия проектного финансирования. LLCR 1.40 = финансирование 0/100 = максимальная маржинальность.",
       "cta": "Запросить финансово-архитектурный бриф",
-      "image": "/assets/krt-margin/aha1_llcr.jpg",
+      "image": "/assets/krt-margin/aha1_llcr.webp",
       "alt": "Финансово-архитектурный бриф для кредитного комитета"
     },
     {
@@ -56,7 +56,7 @@
       "answer": "Китайская архитектурная школа имеет сотни реализованных проектов комплексного развития территорий в мегаполисах — от Шэньчжэня до Шанхая. Они проектируют именно то, что требует Москва: плотную многофункциональную среду с интеграцией Light Industrial, общественных пространств и жилья. DevPartners адаптирует концепцию под московский контекст и готовит полный пакет для АГР/КГА.",
       "detail": "Концепция проектируется под ожидания Москомархитектуры с первого дня. Российский генпроектировщик (ATP-TLP) работает параллельно — адаптация под СНиП и ПЗЗ встроена в процесс, а не является отдельным этапом.",
       "cta": "Обсудить согласование вашего проекта",
-      "image": "/assets/krt-margin/aha2_moskomarh.jpg",
+      "image": "/assets/krt-margin/aha2_moskomarh.webp",
       "alt": "Архитектурная концепция КРТ для Москомархитектуры"
     },
     {
@@ -66,7 +66,7 @@
       "answer": "DevPartners начинает с JTBD-исследования покупателей (партнёр: Vision Lab), чтобы архитектура не просто выглядела, а продавала. Затем формирует продуктовый микс: жильё + Light Industrial + коммерция + общественные пространства. Диверсификация выручки компенсирует соцнагрузку и поднимает маржинальность проекта на 15-20 п.п.",
       "detail": "Китайские бюро из топ-100 имеют портфолио именно таких проектов — интеграция производства в городскую ткань мегаполиса. И стоят в 2 раза дешевле московских бюро при на порядок более глубоком портфолио.",
       "cta": "Получить расчёт LLCR для вашего участка",
-      "image": "/assets/krt-margin/aha3_margin.jpg",
+      "image": "/assets/krt-margin/aha3_margin.webp",
       "alt": "Продуктовый микс КРТ: жильё, Light Industrial, общественные пространства"
     }
   ],
