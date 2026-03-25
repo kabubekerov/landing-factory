@@ -66,7 +66,7 @@
     min-height: 100vh;
     display: flex;
     align-items: stretch;
-    padding: 36px 0 28px;
+    padding: 0;
     overflow: hidden;
   }
 
@@ -98,9 +98,9 @@
     flex-direction: column;
     gap: 18px;
     justify-content: center;
-    padding-top: clamp(72px, 8vh, 100px);
-    padding-bottom: clamp(48px, 5vh, 72px);
-    min-height: calc(100vh - 64px);
+    padding-top: clamp(40px, 5vh, 64px);
+    padding-bottom: clamp(32px, 4vh, 52px);
+    min-height: 100vh;
   }
 
   .hero745__label,
