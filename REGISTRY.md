@@ -71,6 +71,7 @@
 | DevPartners | Китайская архитектура для КРТ и Light Industrial | [https://devpartners.ru/china-arch/](https://devpartners.ru/china-arch/) |
 | DevPartners | Китайская архитектура для сложного КРТ (региональный девелопер, до 10 Га) | [https://devpartners.ru/china-arch-krt/](https://devpartners.ru/china-arch-krt/) |
 | DevPartners | Синдикация КРТ — структурирование партнёрств для масштабных проектов КРТ | [https://devpartners.ru/syndication-krt/](https://devpartners.ru/syndication-krt/) |
+| DevPartners | Суперкейс по маржинальности КРТ — LLCR 1.15→1.40, финансирование 0/100, полный цикл | [https://devpartners.ru/krt-margin/](https://devpartners.ru/krt-margin/) |
 
 ---
 
